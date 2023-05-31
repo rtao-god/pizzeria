@@ -1,0 +1,19 @@
+.mySwiperStories {
+    position: relative;
+    top: 65vh;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.mySwiperStories a {
+    display: flex;
+    width: 100%;
+    height: 156px;
+}
+
+.mySwiperStories img {
+    border-radius: 15%;
+    object-fit: fill;
+}
+

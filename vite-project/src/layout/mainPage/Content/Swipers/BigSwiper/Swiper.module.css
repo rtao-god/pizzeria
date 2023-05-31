@@ -1,0 +1,11 @@
+.swiperWrapper {
+    position: absolute;
+    top: 16vh;
+    left: 0;
+    max-width: 100%;
+    max-height: 320px;
+}
+
+.myBigSwiper {
+    user-select: none;
+}
