@@ -1,34 +1,42 @@
 import React, { useState } from 'react'
 
-import Header from "@mainPage/Header/Header"
+import Header from "@mainPage/Header/Header.jsx"
 import Navbar from "@mainPage/Navbar/Navbar"
 import BigSwiper from "@mainPage/Content/Swipers/BigSwiper/Swiper"
 import SwiperStories from "@mainPage/Content/Swipers/SwiperStories/Swiper"
-import Footer from '@mainPage/Footer/Footer.jsx'
+import Footer from '@mainPage/Footer/Footer'
 import Pizza from '@components/Pizza/Pizza'
 import FilterPizzas from '@mainPage/FilterPizzas/FilterPizzas'
-import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket'
+import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket.jsx'
 import Cookies from '@mainPage/Cookies/Cookies'
 
 export default function MainPage() {
-    const [countCard, setCountCard] = useState(0)
+    const [count, setCount] = useState(0)
+    const [countState, setCountState] = useState(false)
 
-    const counterFun = () => {
-        setCountCard(countCard + 1)
+    const counter = () => {
+        setCount(count + 1)
     }
+
+    setTimeout(() => {
+        if (count == 1) {
+            setCountState(true)
+
+        }
+    }, 1)
 
     return (
         <div>
             <div style={{ position: "absolute", left: "0" }}>
                 <Header />
-                <Navbar counterFun={counterFun} />
+                <Navbar count={count} />
             </div>
             <BigSwiper />
             <div className='backgroundWrapper'> </div>
             <SwiperStories />
-            <Pizza />
+            <Pizza counter={counter} />
             <FilterPizzas />
-            <ButtonBasket countCard={countCard} />
+            <ButtonBasket count={count} countState={countState} />
             <Cookies />
         </div>
     )

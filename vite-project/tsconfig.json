@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@src/*": [
         "./src/*"
       ],
       "@mainPage/*": [
@@ -41,6 +41,9 @@
       "@layout/*": [
         "src/layout/*"
       ],
+      "@context/*": [
+        "src/context/*"
+      ],
     },
     "strict": true,
     "noUnusedLocals": true,
@@ -48,7 +51,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js"
   ],
   "references": [
     {

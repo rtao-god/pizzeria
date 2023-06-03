@@ -1,11 +1,24 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import cl from './Navbar.module.css'
 import OpenModulWindow from './OpenModalWindow'
+import Basket from '@UI/Basket/Basket'
+import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
 export default function Navbar(props) {
-  const [stateModalWindowBasket, setStateModalWindowBasket] = useState(true)
+  const [stateModalWindow, setStateModalWindow] = useState(true)
+
+  const stickAndCountRef = useRef()
+
+  const basketButton = document.querySelector("._basket_1jmlu_1")
+  
+  setTimeout(() => {
+    if (props.count >= 1) {
+      stickAndCountRef.current.style.display = "flex"
+      basketButton.style.width = "170px"
+    }
+  }, 1)
 
   return (
     <div>
@@ -18,22 +31,21 @@ export default function Navbar(props) {
         <a href="#"> DESSERT </a>
         <a href="#"> DRINKS </a>
         <a href="#"> ICE PIZZA </a>
-        {stateModalWindowBasket
-          ?
-          <button className={cl.basketBtn} onClick={() => setStateModalWindowBasket(false)} style={{ display: "flex" }}>
-            <FontAwesomeIcon icon={faBasketShopping} />
-            <p> BASKET | {props.countCard} </p>
-          </button>
 
-          :
+        <div onClick={() => setStateModalWindow(false)} style={{ display: "flex" }}>
           <div>
-            <button className={cl.basketBtn} onClick={() => setStateModalWindowBasket(false)} style={{ display: "flex" }}>
-              <FontAwesomeIcon icon={faBasketShopping} />
-              <p> BASKET | {props.countCard} </p>
-            </button>
-            <OpenModulWindow />
+            <Basket title={"BASKET"} />
           </div>
+          <span ref={stickAndCountRef} style={{ display: "none", position: "relative", left: "-23px" }}>
+            <ModuleButtonBasket stick={"|"} count={props.count} />
+          </span>
+        </div>
+
+        {stateModalWindow
+          ? null
+          : <OpenModulWindow setStateModalWindow={setStateModalWindow} />
         }
+
       </div>
     </div>
   )

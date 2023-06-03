@@ -19,7 +19,7 @@
     background-color: rgb(150, 5, 29);
 }
 
-#ButtonBasket div {
+#ButtonBasket .countButtonBasket {
     position: absolute;
     top: 0;
     left: 0;

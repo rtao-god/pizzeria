@@ -8,6 +8,7 @@ const pizzasArray = [
     {
         food: "aNzF1GqcK8sQnzsMECKy7hjNP8ih8Vhd9R0udmiC",
         ingredients: "Соус Альфредо, сыр Моцарелла, грибы и пармезан",
+        rec: true
     },
     {
         food: "kZ5wUJjs4Udt6vtzFX542PzjYrVugLXZ9vu2DtJY",

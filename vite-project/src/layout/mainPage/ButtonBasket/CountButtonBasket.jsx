@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function CountButtonBasket(props) {
   return (
-    <div>
-        {props.countCard}
+    <div className='countButtonBasket'>
+        {props.count}
     </div>
   )
 }
