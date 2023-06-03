@@ -1,0 +1,119 @@
+
+// @use "mainPage/Header/Header.module.sass"
+// @use "mainPage/Cookies/Cookies.module.sass"
+
+.titleFoodWrapper
+    position: relative
+    width: 100%
+    .titleFood
+        position: relative
+        color: black
+        margin-top: 540px
+        display: flex
+        justify-content: center
+        font-family: "PFDin"
+        font-size: 26px
+        font-weight: 900
+
+        &::before
+            position: relative
+            top: 12px
+            content: ""
+            width: 100%
+            max-width: 464px
+            height: 2px
+            margin-left: -100%
+            left: -20px
+            background-color: rgb(223, 223, 227)
+        &::after
+            position: relative
+            top: 12px
+            content: ""
+            width: 100%
+            max-width: 464px
+            height: 2px
+            margin-right: -100%
+            right: -20px
+            background-color: rgb(223, 223, 227)
+
+.filterPizzas
+    position: relative
+    display: flex
+    top: 50px
+    color: rgb(49, 49, 49)
+    opacity: 0.7
+    & span
+        margin-right: 15px
+        padding: 8px 12px
+        background-color: white
+
+.cardWrapper
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    & .count
+        display: none
+    & .navbar
+        display: none
+    & .card
+        flex-direction: column
+        margin: 10px
+        max-width: 250px
+        max-height: 100%
+        background-color: white
+        & p, img, h3, button, .params
+            margin-bottom: 12px
+
+        & img
+            user-select: none
+            object-fit: cover
+            height: 180px
+            cursor: pointer
+
+        & .cardContent
+            margin: 15px
+            & h3
+                font-family: sans-serif
+                cursor: pointer
+                transition: color 0.1s ease 0s
+                &:hover
+                    color: rgb(112, 164, 1)
+            & p
+                color: #6f8090
+            & .params
+                border-color: rgb(233, 235, 238)
+
+                & p, input
+                    padding: 5px
+                    width: 100%
+                    color: #6f8090
+                    border: 1px solid rgb(233, 235, 238)
+
+            & .footerCard
+                display: flex
+                justify-content: space-between
+                align-items: center
+                position: relative
+                top: 20px
+                & .priceFood
+                    border-top: 1px solid rgb(150 171 204)
+                    font-weight: 600
+                    font-size: 16px
+                    color: black
+                // & button
+                //     background-color: rgb(112, 164, 1)
+                //     transition: background-color 0.2s ease 0s
+                //     color: white
+                //     border-radius: 6px
+                //     cursor: pointer
+                //     padding: 10px 29px
+                //     font-size: 14px
+                //     &:hover
+                //         background-color: rgb(69, 98, 0)
+                //     & svg
+                //         margin-right: 8px
+                //     & p
+                //         margin-bottom: 0
+                //         color: white 
