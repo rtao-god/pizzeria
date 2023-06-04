@@ -8,7 +8,6 @@
     ],
     "module": "ESNext",
     "skipLibCheck": true,
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -17,11 +16,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-<<<<<<< HEAD
       "@src/*": [
-=======
-      "@/*": [
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
         "./src/*"
       ],
       "@mainPage/*": [
@@ -45,12 +40,9 @@
       "@layout/*": [
         "src/layout/*"
       ],
-<<<<<<< HEAD
       "@context/*": [
         "src/context/*"
       ],
-=======
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
     },
     "strict": true,
     "noUnusedLocals": true,
@@ -58,14 +50,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-<<<<<<< HEAD
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
-=======
-    "src"
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
   ],
   "references": [
     {
