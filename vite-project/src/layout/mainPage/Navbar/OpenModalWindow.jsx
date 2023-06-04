@@ -3,11 +3,8 @@ import cl from "./OpenModalWindow.module.sass"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-<<<<<<< HEAD
 import SwiperRec from "./SwiperRec"
 
-=======
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
 export default function OpenModalWindow(props) {
     const modalWindow = useRef(null)
     const modalWindowAll = useRef(null)
@@ -21,10 +18,7 @@ export default function OpenModalWindow(props) {
     }, 20)
 
     const closeModalWindow = () => {
-<<<<<<< HEAD
         props.setStateModalWindow(true)
-=======
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
         modalWindowAll.current.style.display = "none"
     }
 
@@ -42,10 +36,6 @@ export default function OpenModalWindow(props) {
     function increaseCounter() {
         setPrice(price + 100)
         setCount(count + 1)
-<<<<<<< HEAD
-=======
-
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
     }
 
     return (
@@ -88,39 +78,8 @@ export default function OpenModalWindow(props) {
                                 <p className={cl.promoCodeSpan}> Discount does not apply to promo kits and other promotional offers </p>
                             </p>
                         </div> <br />
-
-<<<<<<< HEAD
                         <p style={{ backgroundColor: "rgb(248, 248, 249)" }}> WE RECOMMEND ADDING </p> <br />
                         <SwiperRec />
-=======
-                        <p> WE RECOMMEND ADDING </p> <br />
-                        <div className={cl.recommendedProduct}>
-                            <div className={cl.cardRec}>
-                                <img src="assets/photo/food/9wuyjOz5zn60sLQjh3rgE5swzBAZT4QDManeUkcM-optimize.jpg" alt="" />
-                                <div className={cl.cardContent}>
-                                    <h3> Roman Pizza Margherita  </h3> <br />
-                                    <p className={cl.priceCard}> 576$ </p>
-                                    <button> Basket </button>
-                                </div>
-                            </div>
-                            <div className={cl.cardRec}>
-                                <img src="assets/photo/food/9wuyjOz5zn60sLQjh3rgE5swzBAZT4QDManeUkcM-optimize.jpg" alt="" />
-                                <div className={cl.cardContent}>
-                                    <h3> Roman Pizza Margherita </h3>
-                                    <p> 576$ </p>
-                                    <button> Basket </button>
-                                </div>
-                            </div>
-                            <div className={cl.cardRec}>
-                                <img src="assets/photo/food/9wuyjOz5zn60sLQjh3rgE5swzBAZT4QDManeUkcM-optimize.jpg" alt="" />
-                                <div className={cl.cardContent}>
-                                    <h3> Roman Pizza Margherita </h3>
-                                    <p> {price} $ </p>
-                                    <button> Basket </button>
-                                </div>
-                            </div>
-                        </div>
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
                     </div>
                 </div>
 
@@ -141,10 +100,6 @@ export default function OpenModalWindow(props) {
                 </div>
 
             </div>
-<<<<<<< HEAD
-        </div >
-=======
         </div>
->>>>>>> 0657087b7ba6da58ef90271e3a43ef862a1f64d5
     )
 }

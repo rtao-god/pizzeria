@@ -11,7 +11,7 @@ export default function Navbar(props) {
 
   const stickAndCountRef = useRef()
 
-  const basketButton = document.querySelector("._basket_1jmlu_1")
+  const basketButton = document.querySelector("._basket_18btz_1")
 
   setTimeout(() => {
     if (props.count >= 1) {
