@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import PizzaForm from './PizzaForm'
+import FoodForm from './FoodForm'
 import "@mainSass/main.sass"
-import FilterPizzas from '@mainPage/FilterPizzas/FilterPizzas'
+import filterFood from '@mainPage/filterFood/filterFood'
 
 export default function Pizza({ counter }) {
     return (
         <div className='pizza'>
-            <PizzaForm counter={counter} />
+            <div className='titleFoodWrapper'>
+                <h1 className='titleFood'> PIZZA </h1>
+            </div>
+            <FoodForm counter={counter} />
         </div>
     )
 }

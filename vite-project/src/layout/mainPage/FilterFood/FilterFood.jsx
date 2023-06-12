@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function FilterPizzas() {
+export default function FilterFood() {
     return (
         <div>
-            <div className='filterPizzas'>
+            <div className='filterFood'>
                 <span> without meat </span>
                 <span> without mushrooms </span>
                 <span> without onion </span>

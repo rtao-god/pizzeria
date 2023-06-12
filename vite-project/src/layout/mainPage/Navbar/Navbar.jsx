@@ -1,22 +1,20 @@
-import React, { useRef, useState } from 'react'
-
+import React, { useRef } from 'react'
 import cl from './Navbar.module.css'
-import OpenModulWindow from './OpenModalWindow'
+
+import ModulWindow from './ModalWindow/ModalWindow'
 
 import Basket from '@UI/Basket/Basket'
 import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
-export default function Navbar(props) {
-  const [stateModalWindow, setStateModalWindow] = useState(true)
-
+export default function Navbar({ count, active, setActive }) {
   const stickAndCountRef = useRef()
 
   const basketButton = document.querySelector("._basket_18btz_1")
 
   setTimeout(() => {
-    if (props.count >= 1) {
+    if (count >= 1) {
       stickAndCountRef.current.style.display = "flex"
-      basketButton.style.width = "170px"
+      basketButton.style.width = "165px"
     }
   }, 1)
 
@@ -31,18 +29,18 @@ export default function Navbar(props) {
         <a href="#"> DESSERT </a>
         <a href="#"> DRINKS </a>
         <a href="#"> ICE PIZZA </a>
-        <div onClick={() => setStateModalWindow(false)} style={{ display: "flex" }}>
+        <div onClick={() => setActive(true)} style={{ display: "flex", marginLeft: "235px" }}>
           <div>
             <Basket title={"BASKET"} />
           </div>
           <span ref={stickAndCountRef} style={{ display: "none", position: "relative", left: "-23px" }}>
-            <ModuleButtonBasket stick={"|"} count={props.count} />
+            <ModuleButtonBasket stick={"|"} count={count} />
           </span>
         </div>
 
-        {stateModalWindow
-          ? null
-          : <OpenModulWindow setStateModalWindow={setStateModalWindow} />
+        {active
+          ? <ModulWindow active={active} setActive={setActive} />
+          : null
         }
       </div>
     </div>

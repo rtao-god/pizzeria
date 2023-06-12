@@ -36,7 +36,7 @@
             right: -20px
             background-color: rgb(223, 223, 227)
 
-.filterPizzas
+.filterFood
     position: relative
     display: flex
     top: 50px
@@ -47,17 +47,13 @@
         padding: 8px 12px
         background-color: white
 
-.cardWrapper
+.cartItems
     position: relative
     display: flex
     flex-wrap: wrap
-    align-items: center
     justify-content: space-between
-    & .count
-        display: none
-    & .navbar
-        display: none
-    & .card
+    align-items: center
+    & .cart
         flex-direction: column
         margin: 10px
         max-width: 250px
@@ -72,7 +68,7 @@
             height: 180px
             cursor: pointer
 
-        & .cardContent
+        & .cartContent
             margin: 15px
             & h3
                 font-family: sans-serif
@@ -91,7 +87,7 @@
                     color: #6f8090
                     border: 1px solid rgb(233, 235, 238)
 
-            & .footerCard
+            & .footerCart
                 display: flex
                 justify-content: space-between
                 align-items: center

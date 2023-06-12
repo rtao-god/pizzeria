@@ -10,7 +10,7 @@ export default function Cookies() {
     return (
         <div>
             {closeButton
-                ? ""
+                ? null
                 : <div className={cl.container} >
                     <pre>
                         By continuing to browse the site, you agree to our use of cookies. To learn more or change your cookie settings, <a href="#">
