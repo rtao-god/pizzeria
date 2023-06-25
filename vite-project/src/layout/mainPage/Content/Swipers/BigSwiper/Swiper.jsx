@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigation, Pagination, Scrollbar, A11y, Virtual } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, Virtual } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './Swiper.module.css'
 import './button.css'
@@ -46,7 +46,7 @@ export default function BigSwiper() {
                         </a>
                     </SwiperSlide>
                 ))}
-                <div className="swiper-pagination-big"></div>
+                <div className={cl["swiper-pagination-big"]}></div>
             </Swiper>
         </div>
     )

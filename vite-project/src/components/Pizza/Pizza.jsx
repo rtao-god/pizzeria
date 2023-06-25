@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import FoodForm from './FoodForm'
-import "@mainSass/main.sass"
-import filterFood from '@mainPage/filterFood/filterFood'
+import React from 'react'
 
-export default function Pizza({ counter }) {
+import "@mainSass/main.sass"
+
+import filterFood from '@mainPage/filterFood/filterFood'
+import FoodList from './FoodList'
+
+export default function Pizza({ addFoodInBasket, foods }) {
     return (
-        <div className='pizza'>
+        <div>
             <div className='titleFoodWrapper'>
                 <h1 className='titleFood'> PIZZA </h1>
             </div>
-            <FoodForm counter={counter} />
+            <FoodList addFoodInBasket={addFoodInBasket} foods={foods} />
         </div>
     )
 }

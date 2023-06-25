@@ -47,55 +47,58 @@
         padding: 8px 12px
         background-color: white
 
-.cartItems
+.foodWrapper
     position: relative
     display: flex
     flex-wrap: wrap
     justify-content: space-between
-    align-items: center
     & .cart
-        flex-direction: column
-        margin: 10px
-        max-width: 250px
-        max-height: 100%
+        margin-top: 15px
+        width: 250px
         background-color: white
-        & p, img, h3, .params
-            margin-bottom: 12px
+        position: relative
 
         & img
             user-select: none
             object-fit: cover
             height: 180px
             cursor: pointer
-
         & .cartContent
-            margin: 15px
+            height: 275px
+            padding: 12px
+            max-height: 300px
             & h3
                 font-family: sans-serif
                 cursor: pointer
-                transition: color 0.1s ease 0s
+                transition: color 0.2s ease 0s
+                margin-bottom: 10px
                 &:hover
                     color: rgb(112, 164, 1)
             & p
                 color: #6f8090
             & .params
+                margin-top: 10px
                 border-color: rgb(233, 235, 238)
-
-                & p, input
+                & input
                     padding: 5px
                     width: 100%
                     color: #6f8090
                     border: 1px solid rgb(233, 235, 238)
 
-            & .footerCart
-                display: flex
-                justify-content: space-between
-                align-items: center
-                position: relative
-                top: 20px
-                margin-bottom: 33px
-            & .priceFood
-                border-top: 1px solid rgb(150 171 204)
-                font-weight: 600
-                font-size: 16px
-                color: black
+        // & .footerWrapper
+           /*  position: relative
+            margin-top: 10px
+            height: 100px */
+
+        & .footer
+            position: absolute
+            bottom: 11px
+            width: 90%
+            display: flex
+            justify-content: space-between
+            align-items: center
+        & .priceFood
+            border-top: 1px solid rgb(150 171 204)
+            font-weight: 600
+            font-size: 16px
+            color: black

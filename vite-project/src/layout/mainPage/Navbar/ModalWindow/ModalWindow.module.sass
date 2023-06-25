@@ -5,8 +5,6 @@
     overflow-y: scroll
     overflow-x: hidden
 
-.scrollInner
-
 ::-webkit-scrollbar
     width: 4px
     height: 10px
@@ -26,8 +24,6 @@
     transition: all 0.5s
     padding: 20px
     color: #313131
-.active
-    right: 0
 
 .closeModalBtn
     color: red
@@ -48,6 +44,7 @@
     padding: 10px
     transition: background-color 0.3s
     border-radius: 4px
+    position: relative
     &:hover
         background-color: rgb(79, 115, 0)
     & .leftAndLvl
@@ -55,13 +52,19 @@
         justify-content: space-between
         & .lvlProgress
             margin-right: 16px
-    & div
+    & .thresholdAndLvlProgress
+        position: absolute
+        right: 0
+        top: 9px
+        width: 50px
+    & .shipping
         position: relative
-        width: 100%
+        width: 87%
         & .progressBar
+            position: relative
             z-index: 1
-            max-width: 80%
             width: 10%
+            max-width: 100%
             height: 3px
             background-color: white
             margin: 0
@@ -69,38 +72,50 @@
             border-radius: 7px
             transition: width 0.2s
         & .progress
-            width: 100%
             height: 3px
             background-color: rgb(158, 158, 158)
             margin-top: -3px
             border-radius: 7px
-        & .blockFlex
-            display: flex
-            & .threshold
-                width: 51px
-                height: 10px
-                display: block
-                margin-top: -5px
-
+            
 .blockLink
     display: flex
     justify-content: space-around
-    transition: border 0.3s ease
-
     & a
         padding: 5px
+        display: flex
+        justify-content: space-around
         border-bottom: 2px solid rgb(112, 164, 1)
+        &:hover
+            animation: 1s progressBar infinite
 
+@keyframes progressBar
+    0%
+        height: 25px
+        border-bottom: 2px solid rgb(1, 164, 93)
+
+    50%
+        height: 35px
+        border-bottom: 2px solid rgb(1, 91, 164)
+
+    75%
+        height: 45px
+        border-bottom: 2px solid rgb(171, 4, 107)
+    100%
+        height: 25px
+        border-bottom: 2px solid rgb(255, 0, 0)
+
+.cartWrapper
+    display: block
 .cartFood
     display: flex
-    .miniFoodImg img
-        width: 60px
+    & .miniFoodImg
+        width: 86px
         height: 80px
         object-fit: cover
         margin-right: 10px
-    .counterAndPrice
+    & .counterAndPrice
         user-select: none
-    .counter svg
+    & .counter svg
         cursor: pointer
 
 .promoCodeText
@@ -118,7 +133,14 @@
     display: flex
     & input
         border-radius: 5px 0 0 5px
+        border: 1px solid rgb(162, 162, 162)
+        padding-left: 20px
         width: 100%
+        &:hover
+            border-color: rgb(49, 49, 49)
+        &:focus
+            outline-width: 0
+            border-color: rgb(49, 49, 49)
     .arrowBackground
         border-radius: 0px 5px 5px 0px
         width: 48px
@@ -145,7 +167,6 @@
     width: 100%
     color: white
     transition: background-color 0.3s
-
     &:hover
         background-color: rgb(79, 115, 0)
 

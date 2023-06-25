@@ -6,39 +6,50 @@ import Navbar from "@mainPage/Navbar/Navbar"
 import BigSwiper from "@mainPage/Content/Swipers/BigSwiper/Swiper"
 import SwiperStories from "@mainPage/Content/Swipers/SwiperStories/Swiper"
 import Footer from '@mainPage/Footer/Footer'
-import Pizza from '@components/Pizza/Pizza'
 import filterFood from '@mainPage/filterFood/filterFood'
 import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket.jsx'
 import Cookies from '@mainPage/Cookies/Cookies'
+import CartFood from "../../pages/FoodCart"
 
 export default function MainPage() {
-    const [count, setCount] = useState(0)
+    const [basket, setBasket] = useState([])
+    const [countTotal, setCountTotal] = useState(basket.length)
+    const [copy, setCopy] = useState([])
+    console.log(countTotal)
 
     const [countState, setCountState] = useState(false)
     const [activeModal, setActiveModal] = useState(false)
 
-    const counter = () => {
-        setCount(count + 1)
-    }
+    let productAlreadyInCart = false
 
-    setTimeout(() => {
-        if (count == 1) {
-            setCountState(true)
+    const addFoodInBasket = (food) => {
+        basket.forEach(el => {
+            if (food.id == el.id) {
+                productAlreadyInCart = true
+                food.count++
+            }
+        })
+        if (!productAlreadyInCart) {
+            basket.push(food)
         }
-    }, 1)
+
+        setCountTotal(countTotal + 1)
+        setCountState(true)
+    }
 
     return (
         <div>
             <div style={{ position: "absolute", left: "0" }}>
                 <Header />
-                <Navbar count={count} active={activeModal} setActive={setActiveModal} />
+                <Navbar copy={copy} basket={basket} setBasket={setBasket} countTotal={countTotal} setCountTotal={setCountTotal} active={activeModal} setActive={setActiveModal} />
             </div>
+
             <BigSwiper />
             <div className='backgroundWrapper'> </div>
             <SwiperStories />
-            <Pizza counter={counter} />
+            <CartFood addFoodInBasket={addFoodInBasket} />
             <filterFood />
-            <ButtonBasket count={count} countState={countState} active={activeModal} setActive={setActiveModal} />
+            <ButtonBasket countTotal={countTotal} countState={countState} setCountState={setCountState} active={activeModal} setActive={setActiveModal} />
             <Cookies />
         </div>
     )

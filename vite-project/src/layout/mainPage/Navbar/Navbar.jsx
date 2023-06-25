@@ -6,15 +6,18 @@ import ModulWindow from './ModalWindow/ModalWindow'
 import Basket from '@UI/Basket/Basket'
 import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
-export default function Navbar({ count, active, setActive }) {
-  const stickAndCountRef = useRef()
+export default function Navbar({ copy, basket, setBasket, countTotal, setCountTotal, setCountactive, active, setActive }) {
+  const stickAndCountRef = useRef(null)
 
   const basketButton = document.querySelector("._basket_18btz_1")
 
   setTimeout(() => {
-    if (count >= 1) {
+    if (countTotal >= 1) {
       stickAndCountRef.current.style.display = "flex"
       basketButton.style.width = "165px"
+    } else {
+      stickAndCountRef.current.style.display = "none"
+      basketButton.style.width = "137.75px"
     }
   }, 1)
 
@@ -34,12 +37,12 @@ export default function Navbar({ count, active, setActive }) {
             <Basket title={"BASKET"} />
           </div>
           <span ref={stickAndCountRef} style={{ display: "none", position: "relative", left: "-23px" }}>
-            <ModuleButtonBasket stick={"|"} count={count} />
+            <ModuleButtonBasket stick={"|"} countTotal={countTotal} />
           </span>
         </div>
 
         {active
-          ? <ModulWindow active={active} setActive={setActive} />
+          ? <ModulWindow copy={copy} countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} setBasket={setBasket} active={active} setActive={setActive} />
           : null
         }
       </div>

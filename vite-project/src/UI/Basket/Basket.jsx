@@ -12,7 +12,7 @@ export default function Basket(props) {
                 <FontAwesomeIcon icon={faBasketShopping} />
                 <p style={{ color: "white" }} className={cl.basketText}>
                     {props.title}
-                    <ModuleButtonBasket />
+                    <ModuleButtonBasket/>
                 </p>
             </div>
         </button>
