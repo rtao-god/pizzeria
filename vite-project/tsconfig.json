@@ -57,7 +57,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
-  ],
+, "src/main.jsx"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
