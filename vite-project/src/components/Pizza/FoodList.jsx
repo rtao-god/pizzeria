@@ -1,17 +1,14 @@
 import React from 'react'
 import MyFood from './MyFood'
 
-export default function FoodList({ addFoodInBasket, foods }) {
+export default function FoodList({ result, addFoodToBasket }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {!foods.length
-        ? <h1> Foods not found !!! </h1>
-        : <div className='foodWrapper'>
-          {foods.map(food =>
-            <MyFood food={food} addFoodInBasket={addFoodInBasket} />
-          )}
-        </div>
-      }
+      <div className='foodWrapper'>
+        {result.map(food =>
+          <MyFood food={food} key={food.id} addFoodToBasket={addFoodToBasket} />
+        )}
+      </div>
     </div>
   )
 }

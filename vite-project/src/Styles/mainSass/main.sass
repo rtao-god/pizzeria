@@ -37,18 +37,22 @@
             background-color: rgb(223, 223, 227)
 
 .filterFood
-    position: relative
-    display: flex
-    top: 50px
-    color: rgb(49, 49, 49)
+    position: relative !important
+    height: 35px
+    cursor: pointer
+    top: 626px
     opacity: 0.7
-    & span
+    & button
         margin-right: 15px
         padding: 8px 12px
         background-color: white
+        opacity: 0.7
+    .actveFilter
+        border: 1px solid rgb(2, 181, 5)
 
 .foodWrapper
     position: relative
+    top: 77px
     display: flex
     flex-wrap: wrap
     justify-content: space-between
@@ -57,7 +61,6 @@
         width: 250px
         background-color: white
         position: relative
-
         & img
             user-select: none
             object-fit: cover
@@ -84,11 +87,6 @@
                     width: 100%
                     color: #6f8090
                     border: 1px solid rgb(233, 235, 238)
-
-        // & .footerWrapper
-           /*  position: relative
-            margin-top: 10px
-            height: 100px */
 
         & .footer
             position: absolute

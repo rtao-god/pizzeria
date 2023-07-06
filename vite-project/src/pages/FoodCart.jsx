@@ -1,13 +1,9 @@
 import React from 'react'
-
-import { allFoods } from '../components/Pizza/foods/food'
 import Pizza from '../components/Pizza/Pizza'
 
-function Posts({ addFoodInBasket }) {
-    const foods = allFoods
-
+function Posts({ result, addFoodToBasket }) {
     return (
-        <Pizza addFoodInBasket={addFoodInBasket} foods={foods} />
+        <Pizza result={result} addFoodToBasket={addFoodToBasket} />
     )
 }
 

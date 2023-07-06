@@ -1,4 +1,3 @@
-
 const pizzasArray = [
     {
         id: 1,
@@ -8,7 +7,11 @@ const pizzasArray = [
         change: true,
         rec: false,
         count: 1,
-        price: 400,
+        price: 200,
+        defaultPrice: 200,
+        filter: [
+            { withoutMeat: false, withoutMushrooms: false, withoutOnion: false, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 2,
@@ -17,7 +20,11 @@ const pizzasArray = [
         ingredients: "Summer pizza with shrimps, tomato sauce, vegetables, mozzarella cheese, iceberg lettuce with Asian sauce.",
         rec: false,
         count: 1,
-        price: 400,
+        price: 300,
+        defaultPrice: 300,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 3,
@@ -27,7 +34,11 @@ const pizzasArray = [
         change: true,
         rec: false,
         count: 1,
-        price: 400,
+        price: 200,
+        defaultPrice: 200,
+        filter: [
+            { withoutMeat: false, withoutMushrooms: false, withoutOnion: false, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 4,
@@ -37,6 +48,10 @@ const pizzasArray = [
         rec: true,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: true, mushrooms: true, onion: true }
+        ],
     },
     {
         id: 5,
@@ -46,6 +61,10 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 600,
+        defaultPrice: 600,
+        filter: [
+            { withoutMeat: false, withoutMushrooms: true, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 6,
@@ -55,6 +74,10 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: true, mushrooms: true, onion: false }
+        ],
     },
     {
         id: 7,
@@ -64,6 +87,11 @@ const pizzasArray = [
         rec: true,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: true, mushrooms: false, onion: true }
+        ],
+
     },
     {
         id: 8,
@@ -73,6 +101,10 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: true, mushrooms: true, onion: false, }
+        ],
     },
     {
         id: 9,
@@ -83,6 +115,11 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
+
     },
     {
         id: 10,
@@ -92,6 +129,11 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: false, mushrooms: true, onion: false }
+        ],
+
     },
     {
         id: 11,
@@ -102,6 +144,11 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
+
     },
     {
         id: 12,
@@ -111,6 +158,10 @@ const pizzasArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: true, mushrooms: false, onion: true }
+        ],
     },
     {
         id: 13,
@@ -120,7 +171,11 @@ const pizzasArray = [
         rec: true,
         count: 1,
         price: 400,
-    },
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: true, mushrooms: true, onion: true }
+        ],
+    }
 ]
 
 const burgersArray = [
@@ -132,6 +187,10 @@ const burgersArray = [
         rec: true,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: true, mushrooms: true, onion: false }
+        ],
     },
     {
         id: 15,
@@ -141,6 +200,10 @@ const burgersArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 16,
@@ -150,6 +213,10 @@ const burgersArray = [
         rec: true,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
     },
 ]
 
@@ -162,6 +229,10 @@ const wingsArray = [
         rec: false,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: true, withoutOnion: true, meat: false, mushrooms: false, onion: false }
+        ],
     },
     {
         id: 18,
@@ -171,6 +242,10 @@ const wingsArray = [
         rec: true,
         count: 1,
         price: 400,
+        defaultPrice: 400,
+        filter: [
+            { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: false, mushrooms: true, onion: true }
+        ],
     }
 ]
 

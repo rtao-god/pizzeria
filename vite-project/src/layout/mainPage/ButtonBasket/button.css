@@ -1,4 +1,4 @@
-#ButtonBasket {
+#buttonBasket {
     position: fixed;
     right: 60px;
     bottom: 60px;
@@ -15,11 +15,11 @@
     transition: background-color 0.2s ease 0s;
 }
 
-#ButtonBasket:hover {
+#buttonBasket:hover {
     background-color: rgb(150, 5, 29);
 }
 
-#ButtonBasket .countButtonBasket {
+#buttonBasket .countButtonBasket {
     position: absolute;
     top: 0;
     left: 0;

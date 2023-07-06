@@ -2,11 +2,10 @@ import React, { useRef } from 'react'
 import cl from './Navbar.module.css'
 
 import ModulWindow from './ModalWindow/ModalWindow'
-
 import Basket from '@UI/Basket/Basket'
 import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
-export default function Navbar({ copy, basket, setBasket, countTotal, setCountTotal, setCountactive, active, setActive }) {
+export default function Navbar({ basket, countTotal, setCountTotal, active, setActive, addFoodToBasket }) {
   const stickAndCountRef = useRef(null)
 
   const basketButton = document.querySelector("._basket_18btz_1")
@@ -42,7 +41,7 @@ export default function Navbar({ copy, basket, setBasket, countTotal, setCountTo
         </div>
 
         {active
-          ? <ModulWindow copy={copy} countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} setBasket={setBasket} active={active} setActive={setActive} />
+          ? <ModulWindow addFoodToBasket={addFoodToBasket} countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} active={active} setActive={setActive} />
           : null
         }
       </div>

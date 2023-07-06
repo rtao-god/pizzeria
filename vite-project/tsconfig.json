@@ -43,6 +43,9 @@
       "@context/*": [
         "src/context/*"
       ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
     },
     "strict": true,
     "noUnusedLocals": true,

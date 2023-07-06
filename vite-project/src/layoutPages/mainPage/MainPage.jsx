@@ -1,56 +1,52 @@
 import React, { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
-
 import Header from "@mainPage/Header/Header.jsx"
 import Navbar from "@mainPage/Navbar/Navbar"
-import BigSwiper from "@mainPage/Content/Swipers/BigSwiper/Swiper"
-import SwiperStories from "@mainPage/Content/Swipers/SwiperStories/Swiper"
+import MainSwiper from "@mainPage/Swipers/MainSwiper/Swiper"
+import SwiperStories from "@mainPage/Swipers/SwiperStories/Swiper"
 import Footer from '@mainPage/Footer/Footer'
-import filterFood from '@mainPage/filterFood/filterFood'
 import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket.jsx'
 import Cookies from '@mainPage/Cookies/Cookies'
-import CartFood from "../../pages/FoodCart"
+import FoodCart from "@pages/FoodCart"
+import FilterFood from '@components/Pizza/FilterFood'
+import { allFoods } from '@components/Pizza/foods/food'
 
 export default function MainPage() {
-    const [basket, setBasket] = useState([])
-    const [countTotal, setCountTotal] = useState(basket.length)
-    const [copy, setCopy] = useState([])
-    console.log(countTotal)
+  const [basket, setBasket] = useState([])
+  const [countTotal, setCountTotal] = useState(basket.length)
+  const [countState, setCountState] = useState(false)
+  const [result, setResult] = useState(allFoods)
+  const [activeModal, setActiveModal] = useState(false)
+  let productAlreadyInCart = false
 
-    const [countState, setCountState] = useState(false)
-    const [activeModal, setActiveModal] = useState(false)
-
-    let productAlreadyInCart = false
-
-    const addFoodInBasket = (food) => {
-        basket.forEach(el => {
-            if (food.id == el.id) {
-                productAlreadyInCart = true
-                food.count++
-            }
-        })
-        if (!productAlreadyInCart) {
-            basket.push(food)
-        }
-
-        setCountTotal(countTotal + 1)
-        setCountState(true)
+  const addFoodToBasket = food => {
+    basket.forEach(el => {
+      if (food.id == el.id) {
+        productAlreadyInCart = true
+        food.count++
+      }
+    })
+    if (!productAlreadyInCart) {
+      basket.push(food)
     }
 
-    return (
-        <div>
-            <div style={{ position: "absolute", left: "0" }}>
-                <Header />
-                <Navbar copy={copy} basket={basket} setBasket={setBasket} countTotal={countTotal} setCountTotal={setCountTotal} active={activeModal} setActive={setActiveModal} />
-            </div>
+    setCountTotal(countTotal + 1)
+    setCountState(true)
+  }
 
-            <BigSwiper />
-            <div className='backgroundWrapper'> </div>
-            <SwiperStories />
-            <CartFood addFoodInBasket={addFoodInBasket} />
-            <filterFood />
-            <ButtonBasket countTotal={countTotal} countState={countState} setCountState={setCountState} active={activeModal} setActive={setActiveModal} />
-            <Cookies />
-        </div>
-    )
+  return (
+    <div>
+      <div style={{ position: "absolute", left: "0" }}>
+        <Header />
+        <Navbar basket={basket} setBasket={setBasket} countTotal={countTotal} setCountTotal={setCountTotal} addFoodToBasket={addFoodToBasket} active={activeModal} setActive={setActiveModal} />
+      </div>
+      <MainSwiper />
+      <span className='backgroundWrapper'> </span>
+      <SwiperStories />
+      <FilterFood allFoods={allFoods} setResult={setResult} />
+      <FoodCart result={result} addFoodToBasket={addFoodToBasket} />
+      <ButtonBasket countTotal={countTotal} countState={countState} setCountState={setCountState} active={activeModal} setActive={setActiveModal} />
+      <Cookies />
+    </div>
+  )
 }

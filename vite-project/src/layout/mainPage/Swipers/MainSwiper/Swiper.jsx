@@ -1,34 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Navigation, Pagination, Scrollbar, A11y, Virtual } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './Swiper.module.css'
 import './button.css'
-
 import 'swiper/css'
-import 'swiper/css/virtual';
+import 'swiper/css/virtual'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
+export default function MainSwiper() {
+    const images = [
+        { id: 1, path: 'application' },
+        { id: 2, path: 'availablePizzas' },
+        { id: 3, path: 'discount' },
+        { id: 4, path: 'profitableDays' },
+    ]
 
-export default function BigSwiper() {
-
-    const [images, setImages] = useState([
-        { path: 'application' },
-        { path: 'availablePizzas' },
-        { path: 'discount' },
-        { path: 'profitableDays' },
-    ])
-
-    const slides = images.map(
-        (el) =>
-            <img src={'assets/photo/food/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
+    const slides = images.map(el =>
+        <img key={el.id} src={'assets/photo/food/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
     )
 
     return (
         <div className={cl.swiperWrapper}>
             <Swiper
-                className={cl.myBigSwiper}
+                className={cl.myMainSwiper}
                 modules={[Virtual, Navigation, Pagination, Scrollbar, A11y]}
                 loop={true}
                 slidesPerView={1}
@@ -38,16 +34,15 @@ export default function BigSwiper() {
                     hide: true,
                 }}
             >
-
-                {slides.map((slideContent) => (
-                    <SwiperSlide>
+                {slides.map(slideContent => (
+                    <SwiperSlide key={slideContent.key}>
                         <a href='#'>
                             {slideContent}
                         </a>
                     </SwiperSlide>
                 ))}
-                <div className={cl["swiper-pagination-big"]}></div>
             </Swiper>
+            <div className={"swiper-pagination-big"}></div>
         </div>
     )
 }

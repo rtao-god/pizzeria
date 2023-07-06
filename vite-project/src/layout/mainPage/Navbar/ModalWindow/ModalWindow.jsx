@@ -1,106 +1,66 @@
 import React, { useEffect, useRef, useState } from 'react'
 import cl from "./ModalWindow.module.sass"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-
-import SwiperRec from "../SwiperRec"
+import { AnimatePresence } from 'framer-motion'
+import Lottie from 'lottie-react'
+import ConfettiAnimation from '@src/../public/assets/7893-confetti-cannons/data.json'
 import CartFood from './CartFood'
+import PromoCode from './PromoCode/PromoCode'
+import PromoCodeText from './PromoCode/PromoCodeText'
+import SwiperRec from './SwiperRec/SwiperRec'
 
-export default function ModalWindow({ copy, countTotal, setCountTotal, basket, setBasket, active, setActive }) {
+export default function ModalWindow({ addFoodToBasket, countTotal, setCountTotal, basket, active, setActive }) {
     const modalWindow = useRef(null)
     const modalWindowAll = useRef(null)
-    const arrowBackgroundRef = useRef(null)
-    const progressBarRef = useRef(null)
-    const promoCodeInput = useRef(null)
-    const getCartAmount = sum => {
-        setTotalPriceBasket(sum)
-    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            modalWindow.current.style.right = "0"
+        }, 1)
+    }, [])
+
+    const arrPrice = [0]
+    const arrCount = [0]
+
+    basket?.map(el => {
+        arrPrice.push(el.price)
+        arrCount.push(el.count)
+    })
 
     const getDefaultPrice = myDefaultPrice => {
         setDefaultPrice(myDefaultPrice)
     }
 
-    const [totalPriceBasket, setTotalPriceBasket] = useState(0)
-    const [totalPrice, setTotalPrice] = useState(0)
     const [defaultPrice, setDefaultPrice] = useState(0)
-    // console.log("defaultPrice", defaultPrice.myDefaultPrice)
-    const [threshold, setThreshold] = useState(1000)
-    const [left, setleft] = useState(threshold - totalPrice)
-    const [totalCount, setTotalCount] = useState(1)
-    const [lvlProgress, setLvlProgress] = useState(1)
-    const [widthProcent, setWidthProcent] = useState(totalPrice / threshold * 100)
+    const [threshold, setThreshold] = useState(2000)
+    const totalPrice = arrPrice.reduce((a, b) => a + b)
+    const totalCount = arrCount.reduce((a, b) => a + b)
+    const widthProcent = Math.min(totalPrice / threshold * 100, 100)
+    const remaining = threshold - totalPrice
 
-    const [promoCodeValue, setPromoCodeValue] = useState({ value: "" })
-
-    useEffect(() => {
-        setTimeout(() => {
-            // setTotalPrice(totalPrice + defaultPrice.myDefaultPrice)
-            setleft(threshold - totalPrice)
-
-            modalWindow.current.style.right = "0"
-
-            setTotalPrice(totalPriceBasket + totalPrice)
-            // setWidthProcent(widthProcent + 1)
-        }, 1)
-    }, [])
-
-    const increase = () => {
-        setWidthProcent(widthProcent + widthProcent)
-        setTotalPrice(totalPrice + defaultPrice.myDefaultPrice)
-        setTotalCount(totalCount + 1)
-        setleft(threshold - totalPrice)  // setleft(threshold - totalPrice - defaultPrice.myDefaultPrice) 
-        progressBarRef.current.style.width = widthProcent + "%"
-        if (widthProcent >= 100) {
-            setLvlProgress(lvlProgress + 1)
-            setThreshold(threshold * 2)
-            setWidthProcent(widthProcent - 90)
-        }
-        /*   console.log("totalPrice", totalPrice, "totalPriceBasket", totalPriceBasket)
-          console.log(widthProcent) */
+    function increase() {
+        widthProcent >= 100
+            ? setThreshold(threshold * 2)
+            : setCountTotal(countTotal + 1)
     }
 
     function decrement() {
-        setWidthProcent(widthProcent - widthProcent)
-        setTotalPrice(totalPrice - defaultPrice.myDefaultPrice)
-        setTotalCount(totalCount - 1)
-        setleft(threshold - totalPrice - defaultPrice.myDefaultPrice + 100)
-        progressBarRef.current.style.width = widthProcent - 20 + "%"
-        if (widthProcent <= 20) {
-            setWidthProcent(widthProcent + 80)
-            progressBarRef.current.style.width = widthProcent - 20 + "%"
-            setLvlProgress(lvlProgress - 1)
-            setThreshold(threshold / 2)
-        }
-        console.log(widthProcent)
+        setCountTotal(countTotal - 1)
     }
-
-    function inputHandler(e) {
-        setPromoCodeValue({ ...promoCodeValue, value: e.target.value })
-        arrowBackgroundRef.current.style.backgroundColor = "rgb(112, 164, 1)"
-
-        if (promoCodeInput.current.value == "") {
-            arrowBackgroundRef.current.style.backgroundColor = "rgb(183, 209, 128)"
-        }
-    }
-
     return (
-        <div>
+        <span>
             {active
                 ?
                 <div ref={modalWindowAll}>
-                    <div onClick={() => setActive(false)} className={cl.block} ></div >
+                    <span onClick={() => setActive(false)} className={cl.block}></span>
                     <div ref={modalWindow} className={cl.modalWindow}>
                         <p className={cl.countItem}> {totalCount} ITEM WORTH {totalPrice} $ </p> <br />
                         <div className={cl.freeDeliveryProgress}>
-                            <div className={cl.leftAndLvl}>
-                                <span> Spend {left} $ more and get free delivery!  </span>
-                                <div className={cl.thresholdAndLvlProgress}>
-                                    <span className={cl.lvlProgress}> {lvlProgress} lvl </span>
-                                    <span className={cl.threshold}> {threshold} $ </span>
-                                </div>
+                            <div className={cl.leftAndThreshold}>
+                                <span className={cl.remaining}> You're missing {remaining} $ for free shipping </span>
+                                <span className={cl.threshold}> {threshold} $ </span>
                             </div>
                             <div className={cl.shipping}>
-                                <div ref={progressBarRef} className={cl.progressBar}></div>
+                                <div style={{ width: widthProcent + "%" }} className={cl.progressBar}></div>
                                 <div className={cl.progress}></div>
                             </div>
                         </div> <br />
@@ -110,26 +70,21 @@ export default function ModalWindow({ copy, countTotal, setCountTotal, basket, s
                         </div> <br /> <br />
                         <div className={cl.scrollOuter}>
                             <div className={cl.scrollInner}>
-                                <CartFood countTotal={countTotal} setCountTotal={setCountTotal} setActive={setActive} getDefaultPrice={getDefaultPrice} getCartAmount={getCartAmount} copy={copy} basket={basket} setBasket={setBasket} increase={increase} decrement={decrement} />
-                                <div className={cl.promoCodeText}>
-                                    <p>
-                                        Enter the code <span style={{ color: "rgb(217, 34, 36)" }}>"ZABERUSAM"</span> and get a <span style={{ color: "rgb(217, 34, 36)" }}>20% discount</span> in the restaurant for pickup <br /> <br />
-                                        <p className={cl.promoCodeSpan}> Discount does not apply to promo kits and other promotional offers </p>
-                                    </p>
-                                </div> <br />
-                                <SwiperRec />
+                                <CartFood setActive={setActive} getDefaultPrice={getDefaultPrice} basket={basket} increase={increase} decrement={decrement} />
+                                <AnimatePresence>
+                                    {widthProcent === 100 && (
+                                        <Lottie className={cl.confettiAnimation} animationData={ConfettiAnimation} loop={false} autoplay />
+                                    )}
+                                </AnimatePresence>
+                                <PromoCodeText />
+                                <SwiperRec addFoodToBasket={addFoodToBasket} />
                             </div>
                         </div>
-                        <div className={cl.promoCode}>
-                            <input value={promoCodeValue.value} ref={promoCodeInput} onChange={inputHandler} type="text" placeholder='Promo code' />
-                            <div ref={arrowBackgroundRef} className={cl.arrowBackground}>
-                                <span className={cl.arrow}> <FontAwesomeIcon icon={faArrowRight} disabled /> </span>
-                            </div>
-                        </div>
+                        <PromoCode />
                         <div> <br />
                             <div className={cl.blockSum}>
                                 <p> Sum </p>
-                                <p> + 19 points 379₽ </p>
+                                <p> + 19 points {totalPrice} $ </p>
                             </div> <br />
                             <button className={cl.checkout}> Checkout </button>
                             <p className={cl.minSum}> Minimum order amount - 1 $ </p>
@@ -138,6 +93,6 @@ export default function ModalWindow({ copy, countTotal, setCountTotal, basket, s
                 </div>
                 : null
             }
-        </div>
+        </span>
     )
 }

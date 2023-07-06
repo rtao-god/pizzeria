@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
-import cl from "./ModalWindow.module.sass"
+import React from 'react'
 import CartFoodForm from './CartFoodForm'
 
-export default function CartFood({ countTotal, setCountTotal, setActive, getDefaultPrice, getCartAmount, copy, basket, setBasket, increase, decrement }) {
+export default function CartFood({ setActive, getDefaultPrice, basket, increase, decrement }) {
     return (
         <div>
             {!basket.length
-                ? <div> {setActive(false)} </div>
-                : <div>
+                ? <span> {setActive(false)} </span>
+                : <span>
                     {basket.map(bas =>
                         <CartFoodForm
-                            getDefaultPrice={getDefaultPrice} getCartAmount={getCartAmount}
-                            copy={copy} bas={bas} basket={basket} setBasket={setBasket} increase={increase}
-                            decrement={decrement} countTotal={countTotal} setCountTotal={setCountTotal}
+                            getDefaultPrice={getDefaultPrice} bas={bas} key={bas.id}
+                            basket={basket} increase={increase} decrement={decrement}
                         />
                     )}
-                </div>
+                </span>
             }
         </div>
     )
