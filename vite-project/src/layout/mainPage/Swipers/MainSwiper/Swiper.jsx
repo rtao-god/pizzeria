@@ -18,7 +18,7 @@ export default function MainSwiper() {
     ]
 
     const slides = images.map(el =>
-        <img key={el.id} src={'src/assets/photo/food/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
+        <img key={el.id} src={'../../../../assets/photo/food/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
     )
 
     return (
