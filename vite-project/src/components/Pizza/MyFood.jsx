@@ -5,7 +5,7 @@ import "@mainSass/main.sass"
 const MyFood = ({ addFoodToBasket, food }) => {
   return (
     <div className="cart">
-      <img src={'assets/photo/food/' + food.img + '-optimize.jpg'} alt='img cart food' />
+      <img src={'src/assets/photo/food/' + food.img + '-optimize.jpg'} alt='img cart food' />
 
       <div className='cartContent'>
 

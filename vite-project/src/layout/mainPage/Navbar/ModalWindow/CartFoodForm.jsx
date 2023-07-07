@@ -24,7 +24,7 @@ export default function CartFoodForm({ getDefaultPrice, bas, basket, increase, d
 
     return (
         <div className={cl.cartFood}>
-            <img className={cl.miniFoodImg} src={"assets/photo/food/" + bas.img + "-optimize.jpg"} alt="Your basket" />
+            <img className={cl.miniFoodImg} src={"src/assets/photo/food/" + bas.img + "-optimize.jpg"} alt="Your basket" />
             <div className={cl.cartDescription}>
                 <h3> Pizza Venice </h3>
                 <p> 30 cm, traditional </p>

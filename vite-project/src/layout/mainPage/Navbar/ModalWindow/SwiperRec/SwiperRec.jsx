@@ -10,7 +10,7 @@ export default function SwiperRec({ addFoodToBasket }) {
         if (el.rec == true) {
             return (
                 <div key={el.id} className={cl.cart}>
-                    <img src={'assets/photo/food/' + el.img + '-optimize.jpg'} alt="recFood" />
+                    <img src={'src/assets/photo/food/' + el.img + '-optimize.jpg'} alt="recFood" />
                     <div className={cl.cartContent}>
                         <h3> Roman Pizza Margherita  </h3> <br />
                         <p className={cl.priceCart}> 576$ </p> <br />

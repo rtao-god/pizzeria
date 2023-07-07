@@ -23,7 +23,7 @@ export default function SwiperStories() {
     ]
 
     const slides = images.map(el =>
-        <img key={el.id} src={'assets/photo/swiperStories/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
+        <img key={el.id} src={'src/assets/photo/swiperStories/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
     )
 
     return (
