@@ -119,7 +119,6 @@ const pizzasArray = [
         filter: [
             { withoutMeat: true, withoutMushrooms: false, withoutOnion: true, meat: false, mushrooms: false, onion: false }
         ],
-
     },
     {
         id: 10,

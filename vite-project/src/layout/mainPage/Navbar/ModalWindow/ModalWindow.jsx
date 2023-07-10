@@ -39,9 +39,10 @@ export default function ModalWindow({ addFoodToBasket, countTotal, setCountTotal
 
     function increase() {
         widthProcent >= 100
-            ? setThreshold(threshold * 2)
+            ? setThreshold(threshold * 2) || setCountTotal(countTotal + 1)
             : setCountTotal(countTotal + 1)
     }
+    console.log(countTotal)
 
     function decrement() {
         setCountTotal(countTotal - 1)

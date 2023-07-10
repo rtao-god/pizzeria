@@ -10,20 +10,18 @@ import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons
 
 export default function SwiperStories() {
     const images = [
-        { id: 1, path: 'secretPromoCode' },
-        { id: 2, path: 'adPizzas' },
-        { id: 3, path: 'contacts' },
-        { id: 4, path: 'superDiscount' },
-        { id: 5, path: 'legendaryTaste' },
-        { id: 6, path: 'points' },
-        { id: 7, path: 'discount' },
-        { id: 8, path: 'safety' },
-        { id: 9, path: 'icePizza' },
-        { id: 10, path: 'vegetarians' },
+        { path: 'lgaEYy2LRHmv4jhMIHMA622JDsgfbDcFKmY0YCHs' },
+        { path: 'QztOKIZrb2egbPgpGRVpy3YvdfL937lChV7aDJMm' },
+        { path: 'GdPhJuTNJlj0FXuMbw3brw56m3WFphvqCjlfrzwV' },
+        { path: 'STA6batBmx4i9VsOx63d7ojyXvaAvqzU9AA7AQRp' },
+        { path: 'YDOqhJViYiiqL52DgENTN6axMFlIm7IuoG4M5nLo' },
+        { path: 'YfNdfLy4KIvAFTydyoeznSvzkz5q9Oqt2FcA84K3' },
+        { path: 'I4QwwXPwdo1DEWxWjKos9krnQO5tdpIAPuRNdnZs' },
+        { path: 'VsUAusHoqhF79lPQoqHe4ViG0rQxODTi4ZHVyb4K' },
     ]
 
-    const slides = images.map(el =>
-        <img key={el.id} src={'src/assets/photo/swiperStories/' + el.path + '.jpg'} alt={el.path + '-Swiper'} />
+    const slides = images.map((el, index) =>
+        <img key={index} src={'/photo/swiperStories/' + el.path + '-optimize.jpg'} alt={el.path + '-Swiper Stories'} />
     )
 
     return (
@@ -34,8 +32,8 @@ export default function SwiperStories() {
             <Swiper
                 modules={[Virtual, Navigation, Pagination, Scrollbar, A11y]}
                 loop={true}
-                spaceBetween={10}
-                slidesPerView={4}
+                spaceBetween={12}
+                slidesPerView={3.5}
                 navigation={{
                     nextEl: ".swiper-button-next-stories",
                     prevEl: ".swiper-button-prev-stories",
