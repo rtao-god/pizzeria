@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import cl from "./Header.module.sass"
 import "@assets/beermoney/beermoney.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhone, faGift, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import Auth from '@components/Auth/Auth'
 
 export default function Header() {
+  const [modalAuth, setModalAuth] = useState(false)
   return (
     <div className={cl.header}>
       <a href="#">
@@ -21,7 +23,7 @@ export default function Header() {
       </a>
 
       <div className={cl.headerTop}>
-        
+
         <div className={cl.container}>
           <a href="#">
             <FontAwesomeIcon icon={faLocationDot} />
@@ -44,13 +46,17 @@ export default function Header() {
               <span> Points </span>
             </a>
           </div>
-          <div className={cl.container}>
+          <div className={cl.container} onClick={() => setModalAuth(true)}>
             <a href="#">
               <FontAwesomeIcon style={{ color: "rgb(112, 164, 1)" }} icon={faArrowRightToBracket} />
               <span> Sign in </span>
             </a>
           </div>
         </div>
+        {modalAuth
+          ? <Auth modalAuth={modalAuth} setModalAuth={setModalAuth} />
+          : null
+        }
 
       </div>
     </div>
