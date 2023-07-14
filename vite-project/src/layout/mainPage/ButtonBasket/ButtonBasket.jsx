@@ -9,6 +9,7 @@ export default function ButtonBasket({ countTotal, countState, setCountState, ac
     if (countTotal <= 0) {
         setCountState(false)
     }
+    
     return (
         <div onClick={() => setActive(true)} id='buttonBasket'>
             {countState

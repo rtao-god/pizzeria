@@ -46,6 +46,9 @@
       "@pages/*": [
         "src/pages/*"
       ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
     },
     "strict": true,
     "noUnusedLocals": true,
@@ -56,8 +59,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js"
-, "src/main.tsx", "src/App.jsx"  ],
+    "**/*.js",
+    "src/main.tsx",
+    "src/App.jsx"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

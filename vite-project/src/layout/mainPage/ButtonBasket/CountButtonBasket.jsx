@@ -5,13 +5,19 @@ export default function CountButtonBasket(props) {
 
   useEffect(() => {
     count.current.animate([
-      { transform: "scaleX(0)" },
       { transform: "scaleX(1)" },
-      { transform: "rotate(-5deg)" },
-      { transform: "rotate(0deg)" }
+      { transform: "scaleX(2)" },
+      { transform: "rotate(10000deg)" },
+      { transform: "rotate(2deg)" },
+      { transform: "rotate(-1000000000deg)" },
+      { transform: "rotate(-1444deg)" },
+      { transform: "rotate(-1deg)" },
+      { transform: "rotate(-1deg)" },
+      { transform: "rotate(1deg)" },
+      { transform: "rotate(100000deg)" },
+      { transform: "scaleX(2)" },
     ], {
-      duration: 1000,
-      iterations: Infinity
+      duration: 1200,
     })
   }, [props.countTotal])
 
