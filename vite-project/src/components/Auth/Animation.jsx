@@ -5,12 +5,10 @@ export default function Animation({ setAnimation }) {
     useEffect(() => {
         setTimeout(() => {
             setAnimation(false)
-        }, 2000)
+        }, 5000)
     }, [])
 
     return (
-        <div>
-            <img src={animationGif} />
-        </div>
+        <img src={animationGif} />
     )
 }

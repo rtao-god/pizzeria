@@ -41,7 +41,6 @@ export default function MainPage() {
         <Navbar basket={basket} setBasket={setBasket} countTotal={countTotal} setCountTotal={setCountTotal} addFoodToBasket={addFoodToBasket} active={activeModal} setActive={setActiveModal} />
       </div>
       <MainSwiper />
-      <span className='backgroundWrapper'> </span>
       <SwiperStories />
       <FilterFood allFoods={allFoods} setResult={setResult} />
       <FoodCart result={result} addFoodToBasket={addFoodToBasket} />

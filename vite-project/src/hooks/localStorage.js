@@ -5,8 +5,6 @@ const decode = (value) => {
 }
 
 const encode = (value) => {
-  console.log(value)
-
   return JSON.parse(value)
 }
 
