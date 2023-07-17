@@ -44,6 +44,7 @@ export default function MainPage() {
       <SwiperStories />
       <FilterFood allFoods={allFoods} setResult={setResult} />
       <FoodCart result={result} addFoodToBasket={addFoodToBasket} />
+      <Footer />
       <ButtonBasket countTotal={countTotal} countState={countState} setCountState={setCountState} active={activeModal} setActive={setActiveModal} />
       <Cookies />
     </div>

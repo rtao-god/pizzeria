@@ -4,13 +4,9 @@ import "@assets/beermoney/beermoney.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhone, faGift, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
 import Auth from '@components/Auth/Auth'
-import Animation from '@components/Auth/Animation'
 
 export default function Header() {
   const [modalAuth, setModalAuth] = useState(false)
-  const [animation, setAnimation] = useState(false)
-  requestAnimationFrame
-
   return (
     <div className={cl.header}>
       <a href="#">
@@ -57,15 +53,10 @@ export default function Header() {
             </a>
           </div>
         </div>
-        {animation &&
-          <div className={cl.animation}>
-            <Animation setAnimation={setAnimation} />
-          </div>}
         {modalAuth
-          ? <Auth setAnimation={setAnimation} modalAuth={modalAuth} setModalAuth={setModalAuth} />
+          ? <Auth modalAuth={modalAuth} setModalAuth={setModalAuth} />
           : null
         }
-
       </div>
     </div>
   )

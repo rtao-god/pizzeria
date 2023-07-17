@@ -1,28 +1,27 @@
 import React from 'react'
+import cl from "./style.module.sass"
 import Basket from '@UI/Basket/Basket'
-import "@mainSass/main.sass"
 
 const MyFood = ({ addFoodToBasket, food }) => {
   return (
-    <div className="cart">
+    <div className={cl.cart}>
       <img src={'/photo/food/' + food.img + '-optimize.jpg'} alt='img cart food' />
 
-      <div className='cartContent'>
-
-        <div className='textWrapper'>
+      <div className={cl.cartContent}>
+        <div className={cl.textWrapper}>
           <h3> {food.title} </h3>
           <p> {food.ingredients} </p>
           <button> Edit </button>
         </div>
 
-        <div className='params'>
+        <div className={cl.params}>
           <input type='text' value="Traditional" readOnly />
           <input type='text' value="30cm" readOnly />
         </div>
 
-        <div className='footerWrapper'>
-          <div className='footer'>
-            <p className='priceFood'> {food.price} $ </p>
+        <div className={cl.footerWrapper}>
+          <div className={cl.footer}>
+            <p className={cl.priceFood}> {food.price} $ </p>
             <div onClick={() => addFoodToBasket(food)}>
               <Basket title={"To basket"} />
             </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import FilterFoodForm from './FilterFoodForm'
+import cl from "./style.module.sass"
 
 export default function FilterFood({ allFoods, setResult, }) {
     const [filter, setFilter] = useState([
@@ -86,7 +87,7 @@ export default function FilterFood({ allFoods, setResult, }) {
     }
 
     return (
-        <div className='filterFood'>
+        <div className={cl.filterFood}>
             {filter.map(myFilter =>
                 <FilterFoodForm key={myFilter.id} sort={sort} myFilter={myFilter} />
             )}

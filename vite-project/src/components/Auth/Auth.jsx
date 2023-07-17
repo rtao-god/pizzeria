@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useLocalStorage } from '@hooks/localStorage'
 
-export default function Auth({ setAnimation, modalAuth, setModalAuth }) {
+export default function Auth({ modalAuth, setModalAuth }) {
     const authorizationRef = useRef(null)
 
     const btn = useRef(null)
@@ -20,16 +20,15 @@ export default function Auth({ setAnimation, modalAuth, setModalAuth }) {
     const [auth, setAuth] = useState(false)
 
     const [emailSignIn, setEmailSignIn] = useState({ email: "" })
-    const [emailAuth, setEmailAuth] = useState({ email: "default@gmail.com" })
+    const [emailAuth, setEmailAuth] = useState({ email: "" })
 
     const [passwordSignIn, setPasswordSignIn] = useState({ password: "" })
-    const [passwordAuth, setPasswordAuth] = useState({ password: "1234" })
+    const [passwordAuth, setPasswordAuth] = useState({ password: "" })
 
     const [name, setName] = useState({ name: "William" })
 
-    const [arrSave, setArrSave] = useLocalStorage('dataUser', { password: "", email: "", name: "" })
+    const [arrSave, setArrSave] = useLocalStorage("dataUser", { password: "", email: "", name: "" })
 
-    const email = emailAuth.email.length
     const password = passwordAuth.password.length
     const myName = name.name.length
 
@@ -37,14 +36,17 @@ export default function Auth({ setAnimation, modalAuth, setModalAuth }) {
     const borderGreen = "1px solid green"
 
     function signIn() {
-        if (emailSignIn.email == arrSave.email && passwordSignIn.password == arrSave.password) setModalAuth(false), setAnimation(true)
-        else console.log('no no no')
+        if (emailSignIn.email == arrSave.email && passwordSignIn.password == arrSave.password) {
+            setModalAuth(false)
+            alert(arrSave.name + ", You have successfully auth. Congratulations")
+        }
     }
 
     function saveData() {
-        if (passwordAuth.password.length > 2 && myName >= 3 && emailAuth.email.includes("@")) { setArrSave({ password: passwordAuth.password, email: emailAuth.email, name: name.name }) }
-        else console.log('nonono')
-
+        if (password > 2 && myName >= 3) {
+            setArrSave({ ...arrSave, password: passwordAuth.password, email: emailAuth.email, name: name.name })
+            setAuth(false)
+        }
     }
 
     const [icons, setIcon] = useState(true)
