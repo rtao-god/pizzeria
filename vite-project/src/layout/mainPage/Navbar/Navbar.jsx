@@ -7,8 +7,7 @@ import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
 export default function Navbar({ basket, countTotal, setCountTotal, active, setActive, addFoodToBasket }) {
   const stickAndCountRef = useRef(null)
-
-  const basketButton = document.querySelector("._basket_18btz_1")
+  const basketButton = document.querySelector(".basket")
 
   setTimeout(() => {
     if (countTotal >= 1) {
@@ -16,8 +15,7 @@ export default function Navbar({ basket, countTotal, setCountTotal, active, setA
       basketButton.style.width = "165px"
     } else {
       stickAndCountRef.current.style.display = "none"
-      // basketButton.style.width = "137.75px"
-      basketButton.style.width = "137px"
+      basketButton.style.width = "137.75px"
     }
   }, 10)
 
@@ -33,9 +31,7 @@ export default function Navbar({ basket, countTotal, setCountTotal, active, setA
         <a href="#"> DRINKS </a>
         <a href="#"> ICE PIZZA </a>
         <div onClick={() => setActive(true)} style={{ display: "flex", marginLeft: "235px" }}>
-          <div>
-            <Basket title={"BASKET"} />
-          </div>
+          <Basket title={"BASKET"} />
           <span ref={stickAndCountRef} style={{ display: "none", position: "relative", left: "-23px" }}>
             <ModuleButtonBasket stick={"|"} countTotal={countTotal} />
           </span>
