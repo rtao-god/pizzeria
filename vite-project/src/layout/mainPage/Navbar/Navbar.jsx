@@ -16,9 +16,10 @@ export default function Navbar({ basket, countTotal, setCountTotal, active, setA
       basketButton.style.width = "165px"
     } else {
       stickAndCountRef.current.style.display = "none"
-      basketButton.style.width = "137.75px"
+      // basketButton.style.width = "137.75px"
+      basketButton.style.width = "137px"
     }
-  }, 1)
+  }, 10)
 
   return (
     <div>
