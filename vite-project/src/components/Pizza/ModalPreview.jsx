@@ -49,7 +49,7 @@ export default function ModalPreview() {
       </div>
 
       <div className={cl.preview}>
-        <img src={"/public/photo/food/" + found.img + "-optimize.jpg"} alt="food" />
+        <img src={"/photo/food/" + found.img + "-optimize.jpg"} alt="food" />
         <div className={cl.previewContent}>
           <h4> {found.title} </h4>
           <p> {found.ingredients} </p>
