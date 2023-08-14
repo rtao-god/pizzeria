@@ -49,6 +49,12 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
+      "@router/*": [
+        "src/router/*"
+      ],
+      "@layoutPages/*": [
+        "src/layoutPages/*"
+      ],
     },
     "strict": true,
     "noUnusedLocals": true,
@@ -62,7 +68,7 @@
     "**/*.js",
     "src/main.tsx",
     "src/App.jsx"
-  ],
+, "src/router/index.jsx"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

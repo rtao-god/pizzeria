@@ -18,6 +18,8 @@ export default defineConfig({
       '@context': path.resolve(__dirname, './src/context'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@router': path.resolve(__dirname, './src/router'),
+      '@layoutPages': path.resolve(__dirname, './src/layoutPages'),
     },
   }
 })

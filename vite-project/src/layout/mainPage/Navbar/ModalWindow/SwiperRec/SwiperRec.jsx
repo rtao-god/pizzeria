@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './SwiperRec.module.css'
 import { allFoods } from '@components/Pizza/foods/food'
 import 'swiper/css'
 import Basket from '@UI/Basket/Basket'
+import { Context } from '@context'
 
-export default function SwiperRec({ addFoodToBasket }) {
+export default function SwiperRec() {
+    const context = useContext(Context)
+
     const allFood = allFoods.map(el => {
         if (el.rec == true) {
             return (
@@ -14,7 +17,7 @@ export default function SwiperRec({ addFoodToBasket }) {
                     <div className={cl.cartContent}>
                         <h3> Roman Pizza Margherita  </h3> <br />
                         <p className={cl.priceCart}> 576$ </p> <br />
-                        <div onClick={() => addFoodToBasket(el)} className={cl.footerCart} >
+                        <div onClick={() => context.addFoodToBasket(el)} className={cl.footerCart} >
                             <Basket title={"To basket"} />
                         </div>
                     </div>

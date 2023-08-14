@@ -1,52 +1,47 @@
-import React, { useState } from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
-import Header from "@mainPage/Header/Header.jsx"
+import React, { useContext, useEffect, useState } from 'react'
+
+import Header from "@mainPage/Header/Header"
 import Navbar from "@mainPage/Navbar/Navbar"
+
 import MainSwiper from "@mainPage/Swipers/MainSwiper/Swiper"
 import SwiperStories from "@mainPage/Swipers/SwiperStories/Swiper"
-import Footer from '@mainPage/Footer/Footer'
-import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket.jsx'
+
+import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket'
 import Cookies from '@mainPage/Cookies/Cookies'
+import Footer from '@mainPage/Footer/Footer'
+
 import FoodCart from "@pages/FoodCart"
 import FilterFood from '@components/Pizza/FilterFood'
-import { allFoods } from '@components/Pizza/foods/food'
+
+import { Context } from '@context'
 
 export default function MainPage() {
-  const [basket, setBasket] = useState([])
-  const [countTotal, setCountTotal] = useState(basket.length)
-  const [countState, setCountState] = useState(false)
-  const [result, setResult] = useState(allFoods)
-  const [activeModal, setActiveModal] = useState(false)
-  let productAlreadyInCart = false
+  const context = useContext(Context)
 
-  const addFoodToBasket = food => {
-    basket.forEach(el => {
-      if (food.id == el.id) {
-        productAlreadyInCart = true
-        food.count++
-      }
-    })
-    if (!productAlreadyInCart) {
-      basket.push(food)
-    }
+  const app = document.getElementsByClassName("App")
 
-    setCountTotal(countTotal + 1)
-    setCountState(true)
+  const styleFalse = () => {
+    app[0].style.width = "1100px"
+    app[0].style.margin = "auto auto"
   }
 
+  useEffect(() => {
+    if (location.pathname == "/main") styleFalse()
+  }, [location.pathname])
+
   return (
-    <div>
+    <>
       <div style={{ position: "absolute", left: "0" }}>
         <Header />
-        <Navbar basket={basket} setBasket={setBasket} countTotal={countTotal} setCountTotal={setCountTotal} addFoodToBasket={addFoodToBasket} active={activeModal} setActive={setActiveModal} />
+        <Navbar basket={context.basket} setBasket={context.setBasket} countTotal={context.countTotal} setCountTotal={context.setCountTotal} active={context.activeModal} setActive={context.setActiveModal} />
       </div>
       <MainSwiper />
       <SwiperStories />
-      <FilterFood allFoods={allFoods} setResult={setResult} />
-      <FoodCart result={result} addFoodToBasket={addFoodToBasket} />
+      <FilterFood allFoods={context.allFoods} setResult={context.setResult} />
+      <FoodCart result={context.result} />
       <Footer />
-      <ButtonBasket countTotal={countTotal} countState={countState} setCountState={setCountState} active={activeModal} setActive={setActiveModal} />
+      <ButtonBasket countTotal={context.countTotal} countState={context.countState} setCountState={context.setCountState} active={context.activeModal} setActive={context.setActiveModal} />
       <Cookies />
-    </div>
+    </>
   )
 }

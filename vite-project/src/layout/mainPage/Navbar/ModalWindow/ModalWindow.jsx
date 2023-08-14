@@ -8,7 +8,7 @@ import PromoCode from './PromoCode/PromoCode'
 import PromoCodeText from './PromoCode/PromoCodeText'
 import SwiperRec from './SwiperRec/SwiperRec'
 
-export default function ModalWindow({ addFoodToBasket, countTotal, setCountTotal, basket, active, setActive }) {
+export default function ModalWindow({ countTotal, setCountTotal, basket, active, setActive }) {
     const modalWindow = useRef(null)
     const modalWindowAll = useRef(null)
 
@@ -77,7 +77,7 @@ export default function ModalWindow({ addFoodToBasket, countTotal, setCountTotal
                                     )}
                                 </AnimatePresence>
                                 <PromoCodeText />
-                                <SwiperRec addFoodToBasket={addFoodToBasket} />
+                                <SwiperRec />
                             </div>
                         </div>
                         <PromoCode />

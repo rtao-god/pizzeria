@@ -1,9 +1,9 @@
 import React from 'react'
 import Pizza from '../components/Pizza/Pizza'
 
-function Posts({ result, addFoodToBasket }) {
+function Posts({ result }) {
     return (
-        <Pizza result={result} addFoodToBasket={addFoodToBasket} />
+        <Pizza result={result} />
     )
 }
 

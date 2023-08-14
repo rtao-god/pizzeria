@@ -1,23 +1,23 @@
-import React, { useRef } from 'react'
+import React, { useEffect, createRef } from 'react'
 import cl from './Navbar.module.css'
 
 import ModulWindow from './ModalWindow/ModalWindow'
 import Basket from '@UI/Basket/Basket'
 import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
 
-export default function Navbar({ basket, countTotal, setCountTotal, active, setActive, addFoodToBasket }) {
-  const stickAndCountRef = useRef(null)
-  const basketButton = document.querySelector(".basket")
+export default function Navbar({ basket, countTotal, setCountTotal, active, setActive }) {
+  const stickAndCountRef = createRef()
+  const basketButton = document.getElementsByClassName("basket")
 
-  setTimeout(() => {
+  useEffect(() => {
     if (countTotal >= 1) {
       stickAndCountRef.current.style.display = "flex"
-      basketButton.style.width = "165px"
+      basketButton[0].style.width = "165px"
     } else {
       stickAndCountRef.current.style.display = "none"
-      basketButton.style.width = "137.75px"
+      basketButton[0].style.width = "137.75px"
     }
-  }, 10)
+  }, [countTotal])
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default function Navbar({ basket, countTotal, setCountTotal, active, setA
         </div>
 
         {active
-          ? <ModulWindow addFoodToBasket={addFoodToBasket} countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} active={active} setActive={setActive} />
+          ? <ModulWindow countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} active={active} setActive={setActive} />
           : null
         }
       </div>
