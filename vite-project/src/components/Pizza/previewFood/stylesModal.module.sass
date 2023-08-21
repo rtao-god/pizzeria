@@ -1,0 +1,116 @@
+.preview
+    display: flex
+    margin-top: 103px
+    width: 339px
+    & .imgFood
+        object-fit: cover
+        cursor: zoom-in
+        transition: all 0.2s ease 0s
+        transform: scale(2.2)
+
+.previewContent
+    width: 700px
+    padding: 20px
+    margin-top: 25px
+    margin-left: 204px
+    & h4, p, div, input
+        margin-bottom: 25px
+        &:not(p)
+            font-weight: 600
+    & h4
+        font-family: "PF DinDisplay Pro"
+        line-height: 1
+        font-size: 34px
+        width: 100vw
+    & .dropdown
+        width: 148px
+        height: 45px
+        & .addToppings
+            display: flex
+            height: 21px
+            cursor: pointer
+            user-select: none
+            & p
+                border-bottom: 1px dotted rgb(120, 131, 140)
+                margin-right: 11px
+            & span
+                position: relative
+                font-size: 19px
+                transform: rotate(90deg)
+        & .dropdownContent
+            display: none
+            width: 536px
+            position: absolute
+            background-color: #f1f1f1
+            background: rgb(247 247 247)
+            z-index: 1
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+            & .cardToppings
+                display: flex
+                padding: 0px 30px 0px 30px
+            & .toppingsType
+                & span
+                    pointer-events: none
+                    border-bottom: 1px solid rgba(215, 215, 215, 0.745)
+                    display: flex
+                    color: rgb(49, 49, 49)
+                    & h3
+                        pointer-events: auto
+                        height: 40px
+                        cursor: pointer
+                        transition: all 0.1s
+                        margin: 20px 20px 0 20px
+                        user-select: none
+                        position: relative
+                        left: 0px
+                        top: 0px
+                        &:hover
+                            color: rgb(112, 164, 1)
+            & img
+                width: 20px
+                height: 20px
+                user-select: none
+            & dd
+                padding: 10px
+            & .counter
+                user-select: none
+                & svg
+                    cursor: pointer
+                & span
+                    padding: 7px
+    & .dropdown:hover .dropdownContent
+        display: block
+
+    & input
+        padding: 10px
+    & .cheese
+        display: flex
+        user-select: none
+        cursor: pointer
+        -webkit-box-align: center
+        align-items: center
+        & input
+            pointer-events: none
+            opacity: 0
+            transform: scale(0)
+            position: absolute
+        & span:nth-child(2)
+            position: relative
+            display: inline-block
+            vertical-align: middle
+            min-width: 21px
+            min-height: 21px
+            width: 21px
+            height: 21px
+            border-width: 1px
+            border-style: solid
+            padding: 5px 0px 0px 3px
+            border-radius: 2px
+            border-color: rgb(233, 235, 238)
+            margin-right: 8px
+        & svg
+            width: 14px
+            height: 10px
+            display: block
+        & span
+            color: rgb(120, 131, 140)

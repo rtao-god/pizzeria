@@ -46,6 +46,7 @@ export default function ModalWindow({ countTotal, setCountTotal, basket, active,
     function decrement() {
         setCountTotal(countTotal - 1)
     }
+    
     return (
         <span>
             {active
