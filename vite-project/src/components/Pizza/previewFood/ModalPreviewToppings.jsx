@@ -19,7 +19,7 @@ export default function ModalPreviewToppings({ toppingsEl }) {
 
     return (
         <dl className={cl.cardToppings}>
-            <dd><img src={"https://ruhqphdevback01.pizzahut.ru/storage/10" + toppingsEl.img + ".svg"} alt="toppings icon" /></dd>
+            <dd><img src={"/photo/toppings/Снимок экрана 2023-10-04 " + toppingsEl.img + ".png"} alt="toppings icon" /></dd>
             <dd style={{ width: "54.5%" }}> {toppingsEl.title} </dd>
             <dd style={{ color: "grey" }}> {toppingsEl.price} $ </dd>
             <dd className={cl.counter}>

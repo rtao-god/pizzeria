@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Styles/App.sass'
+import './Styles/App.css'
 import { BrowserRouter } from 'react-router-dom'
 import AppRouter from '@components/Pizza/AppRouter'
 import { Context } from './context'

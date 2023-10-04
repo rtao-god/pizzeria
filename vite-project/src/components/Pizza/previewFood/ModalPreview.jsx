@@ -11,6 +11,10 @@ import { allFoods } from '@components/Pizza/foods/food'
 import ModalPreviewToppings from './ModalPreviewToppings'
 
 export default function ModalPreview() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const context = useContext(Context)
 
   const checkRef = useRef(null)
@@ -42,6 +46,7 @@ export default function ModalPreview() {
     })
 
     checkRef.current.style.display = "block"
+    return setToppingsBool({ meat: true })
   }, [location.pathname])
 
   const [toppingsBool, setToppingsBool] = useState([
@@ -58,12 +63,13 @@ export default function ModalPreview() {
     })
 
     toppingsTypeRef.current.addEventListener("click", e => {
+      console.log(e.target.style.borderBottom)
       e.target.style.borderBottom == "0px solid rgb(112, 164, 1)"
         ? e.target.style.borderBottom = "1px solid rgb(112, 164, 1)"
         : e.target.style.borderBottom = "0px solid rgb(112, 164, 1)"
 
       arrClick.push(e.target)
-      if (arrClick.at(-2).style.borderBottom == "1px solid rgb(112, 164, 1)") arrClick.at(-2).style.borderBottom = "0px solid rgb(112, 164, 1)"
+      if (arrClick.at(-1).style.borderBottom == "1px solid rgb(112, 164, 1)") arrClick.at(-2).style.borderBottom = "0px solid rgb(112, 164, 1)"
 
       switch (e.target.textContent.trim()) {
         case "Meat":
@@ -86,35 +92,34 @@ export default function ModalPreview() {
 
   const [toppings, setToppings] = useState({
     meat: [
-      { img: "2490/de2ad77dec6c6faf8cf932f55f54c70c", title: "Bacon", price: 99, count: 0 },
-      { img: "2472/2fd2d87667c83827caeaaa053fb6a601", title: "Pork ham", price: 99, count: 0 },
-      { img: "2476/8eded6d9000b5938e0dda3b96d7e9aab", title: "Pepperoni sausage", price: 99, count: 0 },
-      { img: "2480/f0c504ffc6ae52e53ae17cb7426cfc54", title: "Meat mix", price: 99, count: 0 },
+      { img: "212820", title: "Bacon", price: 99, count: 0 },
+      { img: "212830", title: "Pork ham", price: 99, count: 0 },
+      { img: "212838", title: "Pepperoni sausage", price: 99, count: 0 },
+      { img: "212849", title: "Meat mix", price: 99, count: 0 },
     ],
     vegetables: [
-      { img: "2478/d1dff7233b77423eed0d490ba372d950", title: "Red onion", price: 79, count: 0 },
-      { img: "2474/1b4fabf90ae8134a821f127ca6de91b6", title: "Mushrooms", price: 79, count: 0 },
-      { img: "2486/40ed3ddd8c568744e147dd62142e7d30", title: "Jalapeno pepper", price: 79, count: 0 },
-      { img: "2484/7af78bc33b2873af8477439478a12557", title: "Olives", price: 79, count: 0 },
-      { img: "2494/1850ceab39fbec6ce27a09b2ffb895e8", title: "pineapples", price: 79, count: 0 },
-      { img: "2482/d553773e96fb9fb7b57a3aa1b393c5ed", title: "Vegetable mix", price: 79, count: 0 },
+      { img: "212417", title: "Red onion", price: 79, count: 0 },
+      { img: "212430", title: "Mushrooms", price: 79, count: 0 },
+      { img: "212441", title: "Jalapeno pepper", price: 79, count: 0 },
+      { img: "212452", title: "Olives", price: 79, count: 0 },
+      { img: "212504", title: "pineapples", price: 79, count: 0 },
+      { img: "212514", title: "Vegetable mix", price: 79, count: 0 },
     ],
     cheeses: [
-      { img: "2492/02439b066af72d3224f870df6f17018d", title: "Mozzarella cheese", price: 89, count: 0 },
+      { img: "212529", title: "Mozzarella cheese", price: 89, count: 0 },
     ],
     sauces: [
-      { img: "2488/36a0f5c354c9830978f46b84037040aa", title: "Barbecue sauce", price: 69, count: 0 },
+      { img: "212540", title: "Barbecue sauce", price: 69, count: 0 },
 
     ]
   })
-  
+
   return (
     <div>
       <div style={{ position: "fixed", top: "0", left: "0", zIndex: "1" }}>
         <Header />
         <Navbar basket={context.basket} setBasket={context.setBasket} active={context.activeModal} setActive={context.setActiveModal} countTotal={context.countTotal} setCountTotal={context.setCountTotal} />
       </div>
-
       <div className={cl.preview}>
         <img className={cl.imgFood} src={"/photo/food/" + found.img + "-optimize.jpg"} alt="food" />
         <div className={cl.previewContent}>
