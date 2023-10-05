@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { privateRoutes } from '@router/index'
 // import { AuthContext } from '@context/index'
@@ -12,7 +12,7 @@ export default function AppRouter() {
      } */
 
     return (
-        <div>
+        <>
             {/* {isAuth
                 ? */}
             <Routes>
@@ -38,6 +38,6 @@ export default function AppRouter() {
                 )}
             </Routes> */}
             {/* } */}
-        </div>
+        </>
     )
 }

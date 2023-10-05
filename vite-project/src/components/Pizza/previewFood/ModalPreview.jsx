@@ -110,7 +110,6 @@ export default function ModalPreview() {
     ],
     sauces: [
       { img: "212540", title: "Barbecue sauce", price: 69, count: 0 },
-
     ]
   })
 
@@ -179,7 +178,7 @@ export default function ModalPreview() {
           <span onClick={() => context.addFoodToBasket(found)}>
             <Basket title={"To basket"} />
           </span>
-          <span style={{ fontWeight: "600", paddingLeft: "1.5rem", fontSize: "1.188em" }}> 500 $ </span>
+          {/* <span style={{ fontWeight: "600", paddingLeft: "1.5rem", fontSize: "1.188em" }}> 300 $ </span> */}
         </div>
       </div>
 
