@@ -1,114 +1,92 @@
-import React, { useRef, useState } from 'react'
-import cl from './Auth.module.sass'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useLocalStorage } from '@hooks/localStorage'
+import React, { useState } from 'react';
+import cl from './Auth.module.sass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useLocalStorage } from '@hooks/localStorage';
 
 export default function Auth({ modalAuth, setModalAuth }) {
-    const authorizationRef = useRef(null)
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [emailSignIn, setEmailSignIn] = useState("");
+    const [emailSignUp, setEmailSignUp] = useState("");
+    const [passwordSignIn, setPasswordSignIn] = useState("");
+    const [passwordSignUp, setPasswordSignUp] = useState("");
+    const [name, setName] = useState("William");
+    const [savedUserData, setSavedUserData] = useLocalStorage("dataUser", { password: "", email: "", name: "" });
+    const [showPassword, setShowPassword] = useState(false);
 
-    const btn = useRef(null)
-
-    const emailSignInRef = useRef(null)
-    const emailAuthRef = useRef(null)
-
-    const passwordSignInRef = useRef(null)
-    const passwordAuthRef = useRef(null)
-
-    const nameRef = useRef(null)
-
-    const [auth, setAuth] = useState(false)
-
-    const [emailSignIn, setEmailSignIn] = useState({ email: "" })
-    const [emailAuth, setEmailAuth] = useState({ email: "" })
-
-    const [passwordSignIn, setPasswordSignIn] = useState({ password: "" })
-    const [passwordAuth, setPasswordAuth] = useState({ password: "" })
-
-    const [name, setName] = useState({ name: "William" })
-
-    const [arrSave, setArrSave] = useLocalStorage("dataUser", { password: "", email: "", name: "" })
-
-    const password = passwordAuth.password.length
-    const myName = name.name.length
-
-    const borderYellow = "1px solid yellow"
-    const borderGreen = "1px solid green"
-
-    function signIn() {
-        if (emailSignIn.email == arrSave.email && passwordSignIn.password == arrSave.password) {
-            setModalAuth(false)
-            alert(arrSave.name + ", You have successfully auth. Congratulations")
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        if (emailSignIn === savedUserData.email && passwordSignIn === savedUserData.password) {
+            setModalAuth(false);
+            alert(`${savedUserData.name}, You have successfully auth. Congratulations`);
         }
-    }
+    };
 
-    function saveData() {
-        if (password > 2 && myName >= 3) {
-            setArrSave({ ...arrSave, password: passwordAuth.password, email: emailAuth.email, name: name.name })
-            setAuth(false)
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        if (passwordSignUp.length > 2 && name.length >= 3) {
+            setSavedUserData({
+                ...savedUserData,
+                password: passwordSignUp,
+                email: emailSignUp,
+                name: name
+            });
+            setIsSignUp(false);
         }
-    }
-
-    const [icons, setIcon] = useState(true)
-    const eyeFunc = (x) => {
-        if (x === "signIn") {
-            const type = passwordSignInRef.current.getAttribute("type") === "password" ? "text" : "password"
-            passwordSignInRef.current.setAttribute("type", type)
-        } else {
-            const type = passwordAuthRef.current.getAttribute("type") === "password" ? "text" : "password"
-            passwordAuthRef.current.setAttribute("type", type)
-        }
-    }
+    };
 
     return (
         <div>
-            {modalAuth &&
-                <div ref={authorizationRef} className={cl.authorization}>
+            {modalAuth && (
+                <div className={cl.authorization}>
                     <FontAwesomeIcon onClick={() => setModalAuth(false)} className={cl.closeButton} icon={faXmark} />
-                    {!auth
-                        ? <div className={cl.userData}>
-                            <span ref={btn} className={[cl.btn, cl.btnSignIn].join(' ')}> Sign in </span> <span style={{ fontSize: "29px" }}>/</span>
-                            <span ref={btn} onClick={() => setAuth(true)} className={cl.btn}> Sign up </span>
-                            <form>
+                    {!isSignUp ? (
+                        <div className={cl.userData}>
+                            <span className={`${cl.btn} ${cl.btnSignIn}`}> Sign in </span>
+                            <span className={cl.separator}>/</span>
+                            <span onClick={() => setIsSignUp(true)} className={cl.btn}> Sign up </span>
+                            <form onSubmit={handleSignIn}>
                                 <div className={cl.email}>
                                     <label> Email </label>
-                                    <input ref={emailSignInRef} value={emailSignIn.email} onChange={e => setEmailSignIn({ ...emailSignIn, email: e.target.value })} minLength="5" maxLength="25" type="email" required />
+                                    <input value={emailSignIn} onChange={e => setEmailSignIn(e.target.value)} minLength="5" maxLength="25" type="email" required />
                                 </div>
                                 <div className={cl.password}>
                                     <label> Password </label>
-                                    <input ref={passwordSignInRef} value={passwordSignIn.password} onChange={e => setPasswordSignIn({ ...passwordSignIn, password: e.target.value })} maxLength="25" type="password" required />
-                                    <FontAwesomeIcon onClick={() => { icons ? setIcon(false) : setIcon(true), eyeFunc("signIn") }} icon={icons ? faEyeSlash : faEye} />
+                                    <input value={passwordSignIn} onChange={e => setPasswordSignIn(e.target.value)} maxLength="25" type={showPassword ? "text" : "password"} required />
+                                    <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={showPassword ? faEyeSlash : faEye} />
                                 </div>
                                 <div className={cl.buttonAuth}>
-                                    <button onClick={() => signIn()}> Sign in </button>
+                                    <button type="submit"> Sign in </button>
                                 </div>
                             </form>
                         </div>
-                        : <form className={cl.userData}>
-                            <span onClick={() => setAuth(false)} className={cl.btn}> Sign in </span> <span style={{ fontSize: "29px" }}>/</span>
-                            <span className={[cl.btn, cl.btnAuth].join(' ')}> Sign up </span>
-                            <div>
+                    ) : (
+                        <form className={cl.userData} onSubmit={handleSignUp}>
+                            <span onClick={() => setIsSignUp(false)} className={cl.btn}> Sign in </span>
+                            <span className={cl.separator}>/</span>
+                            <span className={`${cl.btn} ${cl.btnAuth}`}> Sign up </span>
+                            <div className={cl.formGroup}>
                                 <div className={cl.email}>
                                     <label> Email </label>
-                                    <input style={{ border: !emailAuth.email.includes("@") ? borderYellow : borderGreen }} ref={emailAuthRef} value={emailAuth.email} onChange={e => setEmailAuth({ ...emailAuth, email: e.target.value })} maxLength="18" type="email" required />
+                                    <input className={emailSignUp.includes("@") ? cl.valid : cl.invalid} value={emailSignUp} onChange={e => setEmailSignUp(e.target.value)} maxLength="18" type="email" required />
                                 </div>
                                 <div className={cl.password}>
                                     <label> Password </label>
-                                    <input style={{ border: password < 3 ? borderYellow : borderGreen }} ref={passwordAuthRef} value={passwordAuth.password} onChange={e => setPasswordAuth({ ...passwordAuth, password: e.target.value })} maxLength="18" type="password" required />
-                                    <FontAwesomeIcon onClick={() => { icons ? setIcon(false) : setIcon(true), eyeFunc("auth") }} icon={icons ? faEyeSlash : faEye} />
+                                    <input className={passwordSignUp.length >= 3 ? cl.valid : cl.invalid} value={passwordSignUp} onChange={e => setPasswordSignUp(e.target.value)} maxLength="18" type={showPassword ? "text" : "password"} required />
+                                    <FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={showPassword ? faEyeSlash : faEye} />
                                 </div>
                                 <div className={cl.name}>
                                     <label> Name </label>
-                                    <input style={{ border: myName < 3 ? borderYellow : borderGreen }} ref={nameRef} value={name.name} onChange={e => setName({ ...name, name: e.target.value })} maxLength="18" required />
+                                    <input className={name.length >= 3 ? cl.valid : cl.invalid} value={name} onChange={e => setName(e.target.value)} maxLength="18" required />
                                 </div>
                                 <div className={cl.buttonAuth}>
-                                    <button onClick={() => saveData()}> Auth </button>
+                                    <button type="submit"> Sign up </button>
                                 </div>
                             </div>
                         </form>
-                    }
+                    )}
                 </div>
-            }
+            )}
         </div>
-    )
+    );
 }

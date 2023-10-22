@@ -31,7 +31,7 @@ export default function MainPage() {
 
   return (
     <>
-      <div style={{ position: "absolute", left: "0" }}>
+      <div style={{ position: "absolute", left: "0"}}> 
         <Header />
         <Navbar basket={context.basket} setBasket={context.setBasket} countTotal={context.countTotal} setCountTotal={context.setCountTotal} active={context.activeModal} setActive={context.setActiveModal} />
       </div>

@@ -1,3 +1,9 @@
+$valid-color: rgb(112, 164, 1)
+$invalid-color: yellow
+$btn-hover-color: rgb(69, 98, 0)
+$btn-color: $valid-color
+$border-color: rgb(233, 235, 238)
+
 .closeButton
     position: absolute
     right: 25px
@@ -9,7 +15,7 @@
 .authorization
     position: absolute
     top: 140px
-    right: 300px
+    right: 35%
     width: 385px
     z-index: 100000
     user-select: none
@@ -17,20 +23,24 @@
 .userData
     background: #ffffff
     padding: 31px 0 31px 31px
-    & label
+
+    label
         margin: 10px
         display: inline
-    & div span
-        border: 1px solid red
-    & input
+
+    input
         padding: 7px
-        border: 1px solid rgb(233, 235, 238)
-        &:hover
-            border-color: rgb(233, 235, 238)
-        &:focus
-            outline-width: 0
-            border-color: rgb(233, 235, 238)
-    & svg:not(.closeButton)
+        border: 1px solid $border-color
+        &:hover, &:focus
+            border-color: $border-color
+
+    .valid
+        border: 1px solid $valid-color
+
+    .invalid
+        border: 1px solid $invalid-color
+
+    svg:not(.closeButton)
         color: rgb(138, 138, 138)
         position: relative
         top: 2px
@@ -41,9 +51,12 @@
 .btn
     font-size: 26px
     cursor: pointer
-.btnAuth, .btnSignIn
-    color: rgb(112, 164, 1)
-    border-bottom: 1px dashed rgb(112, 164, 1)
+    &.btnAuth, &.btnSignIn
+        color: $btn-color
+        border-bottom: 1px dashed $btn-color
+
+.separator
+    font-size: 29px
 
 .email, .name
     margin: 30px 0 30px 30px
@@ -52,10 +65,10 @@
     display: flex
     margin: 20px
     justify-content: center
-    & button
+    button
         padding: 10px 80px
         color: white
-        background-color: rgb(112, 164, 1)
+        background-color: $btn-color
         transition: background-color 0.4s ease 0s
         &:hover
-            background-color: rgb(69, 98, 0)
+            background-color: $btn-hover-color
