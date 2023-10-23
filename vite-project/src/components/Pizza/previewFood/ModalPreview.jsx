@@ -75,8 +75,6 @@ export default function ModalPreview() {
     setImageZoom(!isImageZoomed); // Toggle image zoom on click
   }
 
-  // ... other effects ...
-
   const imgFoodStyle = isImageZoomed ? { transform: "scale(2)", transition: "transform 0.3s ease-in-out" } : {}; // Define style for zoom
 
   return (
