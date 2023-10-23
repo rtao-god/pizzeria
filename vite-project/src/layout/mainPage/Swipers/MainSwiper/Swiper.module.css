@@ -1,15 +1,21 @@
 .wrapper {
+    width: 100vw; /* Span the full viewport width */
+    height: 100%;
     position: relative;
-    width: 119%;
+    left: 50%; /* Move to the right by 50% of the viewport width */
+    transform: translateX(-50%); /* Move back to the left by 50% of its own width */
 }
 
 .swiperWrapper {
-    position: absolute;
-    width: 117%;
-    top: 15.5vh;
-    left: -215px;
+    width: 100%;
 }
 
 .myMainSwiper {
     user-select: none;
+}
+
+.myMainSwiper img {
+    margin-top: 120px;
+    width: 100%;
+    height: auto;
 }

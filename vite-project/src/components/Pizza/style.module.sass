@@ -4,7 +4,7 @@
     .titleFood
         position: relative
         color: black
-        margin-top: 540px
+        margin-top: 15vh
         display: flex
         justify-content: center
         font-family: "PFDin"
@@ -34,7 +34,7 @@
 .filterFood
     position: relative !important
     height: 35px
-    top: 626px
+    top: 28vh
     opacity: 0.7
     & button
         cursor: pointer
@@ -45,52 +45,77 @@
     .actveFilter
         border: 1px solid rgb(2, 181, 5)
 
+$border-color: rgb(233, 235, 238)
+$hover-color: rgb(112, 164, 1)
+$font-color: #6f8090
+$food-card-width: 250px
+$food-card-margin: 15px // this is derived from your margin-top for .cart
+
 .foodWrapper
     position: relative
     top: 77px
     margin-bottom: 300px
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    & .cart
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: $food-card-margin
+    justify-items: center
+
+    @media (max-width: 1100px)
+        grid-template-columns: repeat(3, 1fr)
+
+    @media (max-width: 800px)
+        grid-template-columns: repeat(2, 1fr)
+
+    @media (max-width: 320px)
+        grid-template-columns: repeat(1, 1fr)
+
+    .cart
         margin-top: 15px
-        width: 250px
+        width: $food-card-width
         background-color: white
         position: relative
-        & img
+
+        img
             user-select: none
             object-fit: cover
             height: 180px
             cursor: pointer
-        & .cartContent
+
+        .cartContent
             height: 275px
             padding: 12px
             max-height: 300px
-            & h3
+
+            h3
                 font-family: sans-serif
                 cursor: pointer
                 transition: color 0.2s ease 0s
                 margin-bottom: 10px
                 &:hover
-                    color: rgb(112, 164, 1)
-            & p
-                color: #6f8090
-            & .params
+                    color: $hover-color
+
+            p
+                color: $font-color
+
+            .params
                 margin-top: 10px
-                border-color: rgb(233, 235, 238)
-                & input
+                border-color: $border-color
+
+                input
                     padding: 5px
                     width: 100%
-                    color: #6f8090
-                    border: 1px solid rgb(233, 235, 238)
-        & .footer
+                    color: $font-color
+                    border: 1px solid $border-color
+
+        .footer
             position: absolute
             bottom: 11px
             width: 90%
             display: flex
             justify-content: space-between
             align-items: center
-        & .priceFood
+
+        .priceFood
             border-top: 1px solid rgb(150 171 204)
             font-weight: 600
             font-size: 16px

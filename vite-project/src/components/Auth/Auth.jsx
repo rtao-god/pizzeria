@@ -36,7 +36,7 @@ export default function Auth({ modalAuth, setModalAuth }) {
     };
 
     return (
-        <div>
+        <>
             {modalAuth && (
                 <div className={cl.authorization}>
                     <FontAwesomeIcon onClick={() => setModalAuth(false)} className={cl.closeButton} icon={faXmark} />
@@ -87,6 +87,6 @@ export default function Auth({ modalAuth, setModalAuth }) {
                     )}
                 </div>
             )}
-        </div>
+        </>
     );
 }

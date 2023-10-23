@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Virtual, Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './Swiper.module.css'
@@ -30,24 +30,39 @@ export default function SwiperStories() {
                 <FontAwesomeIcon style={{ width: "12px", height: "12px", padding: "10px" }} icon={faChevronLeft} />
             </span>
             <Swiper
-                modules={[Virtual, Navigation, Pagination, Scrollbar, A11y]}
-                loop={true}
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                initialSlide={2}
                 spaceBetween={12}
                 slidesPerView={3.5}
+                centeredSlides={true}
+                loop={true}
                 navigation={{
                     nextEl: ".swiper-button-next-stories",
                     prevEl: ".swiper-button-prev-stories",
                     disabledClass: "swiper-button-disabled"
                 }}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1
+                    },
+                    320: {
+                        slidesPerView: 2
+                    },
+                    620: {
+                        slidesPerView: 2.5
+                    },
+                    1000: {
+                        slidesPerView: 3.5
+                    }
+                }}
             >
                 {slides.map(slideContent => (
                     <SwiperSlide key={slideContent.key}>
-                        <a href='#'>
-                            {slideContent}
-                        </a>
+                        {slideContent}
                     </SwiperSlide>
                 ))}
             </Swiper>
+
             <span className={"swiper-button-next-stories swiper-button-stories"}>
                 <FontAwesomeIcon style={{ width: "12px", height: "12px", padding: "10px" }} icon={faChevronRight} />
             </span>

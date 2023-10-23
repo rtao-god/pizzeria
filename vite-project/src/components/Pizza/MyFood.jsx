@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
-import cl from "./style.module.sass"
-import Basket from '@UI/Basket/Basket'
-import { useNavigate } from "react-router-dom"
-import { Context } from '../../context'
+import React, { useContext } from 'react';
+import cl from "./style.module.sass";
+import Basket from '@UI/Basket/Basket';
+import { useNavigate } from "react-router-dom";
+import { Context } from '../../context';
 
 const MyFood = ({ food }) => {
-  const navigate = useNavigate()
-  const context = useContext(Context)
-  
+  const navigate = useNavigate();
+  const { addFoodToBasket } = useContext(Context);
+
   return (
     <div className={cl.cart}>
       <button onClick={() => navigate(`/preview/${food.id}`)}>
-        <img src={'/photo/food/' + food.img + '-optimize.jpg'} alt='img cart food' />
+        <img src={`/photo/food/${food.img}-optimize.jpg`} alt='img cart food' />
       </button>
-
+     
       <div className={cl.cartContent}>
         <div className={cl.textWrapper}>
           <h3> {food.title} </h3>
@@ -28,20 +28,14 @@ const MyFood = ({ food }) => {
         <div className={cl.footerWrapper}>
           <div className={cl.footer}>
             <p className={cl.priceFood}> {food.price} $ </p>
-            <div onClick={() => context.addFoodToBasket(food)}>
+            <div onClick={() => addFoodToBasket(food)}>
               <Basket title={"To basket"} />
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
 
-export default MyFood
-
-
-
-
-
+export default MyFood;
