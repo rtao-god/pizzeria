@@ -4,7 +4,7 @@ import cl from "./Footer.module.sass"
 export default function Footer() {
   return (
     <footer id={cl.footer}>
-      <dl style={{ marginLeft: "300px" }}>
+      <dl>
         <dt> Menu </dt>
         <dd> Pizza payment </dd>
         <dd> Stock </dd>
