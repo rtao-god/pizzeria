@@ -74,8 +74,9 @@ $food-card-margin: 15px // this is derived from your margin-top for .cart
     @media (max-width: 800px)
         grid-template-columns: repeat(2, 1fr)
 
-    @media (max-width: 320px)
+    @media (max-width: 548px)
         grid-template-columns: repeat(1, 1fr)
+        justify-items: flex-start
 
     .cart
         margin-top: 15px
@@ -83,11 +84,20 @@ $food-card-margin: 15px // this is derived from your margin-top for .cart
         background-color: white
         position: relative
 
+        @media (max-width: 548px)
+            width: 100%
+            display: flex
+
         img
             user-select: none
             object-fit: cover
             height: 180px
             cursor: pointer
+
+            @media (max-width: 548px)
+                min-width: 125px
+                max-width: 125px
+                height: 100%
 
         .cartContent
             height: 275px
@@ -104,6 +114,9 @@ $food-card-margin: 15px // this is derived from your margin-top for .cart
 
             p
                 color: $font-color
+
+                @media (max-width: 756px)
+                    font-size: 13px
 
             .params
                 margin-top: 10px
@@ -123,12 +136,14 @@ $food-card-margin: 15px // this is derived from your margin-top for .cart
             justify-content: space-between
             align-items: center
 
+            @media (max-width: 548px)
+                position: relative
+                margin-top: 100px
+                display: flex
+                justify-content: space-between
+
         .priceFood
             border-top: 1px solid rgb(150 171 204)
             font-weight: 600
             font-size: 16px
             color: black
-
-@media (max-width: 756px)
-    .cart
-        width: 100%
