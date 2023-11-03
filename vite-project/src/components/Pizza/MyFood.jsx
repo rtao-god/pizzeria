@@ -29,7 +29,7 @@ const MyFood = ({ food }) => {
           <div className={cl.footer}>
             <p className={cl.priceFood}> {food.price} $ </p>
             <div onClick={() => addFoodToBasket(food)}>
-              <Basket title={"To basket"} />
+              <Basket title={"Add to cart"} />
             </div>
           </div>
         </div>
