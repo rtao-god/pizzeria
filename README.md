@@ -1,6 +1,22 @@
 # Pizzeria
 Deploy: https://pizzeria-three.vercel.app/
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/your-image-link.png" height="280px">
+  <p align="center">A Pizza Hut Replica Web App built with modern web technologies<p>
+  <p align="center">
+    <a href="https://www.npmjs.com/package/vite-project">
+      <img src="https://img.shields.io/npm/v/vite-project.svg" />
+    </a>
+    <a href="https://travis-ci.org/rtao-god/pizzeria">
+      <img src="https://img.shields.io/travis/rtao-god/pizzeria.svg" />
+    </a>
+    <a href="https://github.com/rtao-god/pizzeria/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/rtao-god/pizzeria.svg" />
+    </a>
+  </p>
+</p>
+
 # Pizza Hut Replica Web App
 
 ## Description
