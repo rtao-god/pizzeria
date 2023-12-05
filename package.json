@@ -1,7 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
-  "homepage": "https://rtao-god.github.io/pizzeria/vite-project/index.html",
+  "homepage": "https://rtao-god.github.io/pizzeria/index.html",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
