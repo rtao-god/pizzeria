@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import './Styles/App.css'
-import { BrowserRouter } from 'react-router-dom'
-import AppRouter from '@components/Pizza/AppRouter'
-import { Context } from './context'
-import { allFoods } from '@components/Pizza/foods/food'
+import React, { useState } from 'react';
+import { HashRouter as Router } from 'react-router-dom'; // Corrected named import for HashRouter
+import './Styles/App.css';
+import AppRouter from '@components/Pizza/AppRouter';
+import { Context } from './context';
+import { allFoods } from '@components/Pizza/foods/food';
 
 function App() {
   const [basket, setBasket] = useState([])
@@ -28,14 +28,14 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <Router> {/* Use HashRouter here */}
       <Context.Provider value={{ allFoods, countTotal, setCountTotal, basket, setBasket, countState, setCountState, addFoodToBasket, result, setResult, activeModal, setActiveModal }}>
         <div className='App'>
           <AppRouter />
         </div>
       </Context.Provider>
-    </BrowserRouter>
-  )
+    </Router>
+  );
 }
 
 export default App
