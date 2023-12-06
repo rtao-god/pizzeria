@@ -1,6 +1,3 @@
-# Pizzeria
-Deploy: https://pizzeria-three.vercel.app/
-
 <p align="center">
   <img src="./public/favicon.ico" height="280px">
   <p align="center">A Pizza Hut Replica Web App built with modern web technologies<p>
