@@ -1,23 +1,19 @@
-import React, { useEffect, createRef } from 'react'
-import cl from './Navbar.module.css'
-
-import ModulWindow from './ModalWindow/ModalWindow'
-import Basket from '@UI/Basket/Basket'
-import ModuleButtonBasket from '@UI/Basket/ModuleButtonBasket'
+import React, { useEffect, useRef } from 'react';
+import cl from './Navbar.module.css';
+import ModalWindow from './ModalWindow/ModalWindow';
+import BasketButton from '@common/controls/BasketButton/BasketButton';
 
 export default function Navbar({ basket, countTotal, setCountTotal, active, setActive }) {
-  const stickAndCountRef = createRef()
-  const basketButton = document.getElementsByClassName("basket")
+  const basketButtonRef = useRef();
 
   useEffect(() => {
     if (countTotal >= 1) {
-      stickAndCountRef.current.style.display = "flex"
-      basketButton[0].style.width = "165px"
+      basketButtonRef.current.style.width = "165px";
     } else {
-      stickAndCountRef.current.style.display = "none"
-      basketButton[0].style.width = "137.75px"
+      basketButtonRef.current.style.width = "137.75px";
     }
-  }, [countTotal])
+  }, [countTotal]);
+
 
   return (
     <div>
@@ -32,15 +28,13 @@ export default function Navbar({ basket, countTotal, setCountTotal, active, setA
           <a href="#"> DRINKS </a>
           <a href="#"> ICE PIZZA </a>
         </div>
-        <div onClick={() => setActive(true)} style={{ display: "flex"}}>
-          <Basket title={"BASKET"} />
-          <span ref={stickAndCountRef} style={{ display: "none", position: "relative", left: "-23px" }}>
-            <ModuleButtonBasket stick={"|"} countTotal={countTotal} />
-          </span>
+        <div onClick={() => setActive(true)} style={{ display: "flex" }}>
+          <div ref={basketButtonRef}>
+            <BasketButton countTotal={countTotal} title={"BASKET"} />
+          </div>
         </div>
-        {active
-          ? <ModulWindow countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} active={active} setActive={setActive} />
-          : null
+        {active &&
+          <ModalWindow countTotal={countTotal} setCountTotal={setCountTotal} basket={basket} active={active} setActive={setActive} />
         }
       </div>
     </div>

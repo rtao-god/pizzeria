@@ -6,12 +6,12 @@ import Navbar from "@mainPage/Navbar/Navbar"
 import MainSwiper from "@mainPage/Swipers/MainSwiper/Swiper"
 import SwiperStories from "@mainPage/Swipers/SwiperStories/Swiper"
 
-import ButtonBasket from '@mainPage/ButtonBasket/ButtonBasket'
+import ButtonBasket from '@controls/BasketButton/BasketButton'
 import Cookies from '@mainPage/Cookies/Cookies'
 import Footer from '@mainPage/Footer/Footer'
 
 import FoodCart from "@pages/FoodCart"
-import FilterFood from '@components/Pizza/FilterFood'
+import FoodFilter from '@components/food/FoodFilter/FoodFilter'
 
 import { Context } from '@context'
 
@@ -37,7 +37,7 @@ export default function MainPage() {
       </div>
       <MainSwiper />
       <SwiperStories />
-      <FilterFood allFoods={context.allFoods} setResult={context.setResult} />
+      <FoodFilter allFoods={context.allFoods} setResult={context.setResult} />
       <FoodCart result={context.result} />
       <Footer />
       <ButtonBasket countTotal={context.countTotal} countState={context.countState} setCountState={context.setCountState} active={context.activeModal} setActive={context.setActiveModal} />

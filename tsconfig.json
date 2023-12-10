@@ -34,8 +34,11 @@
       "@assets/*": [
         "src/assets/*"
       ],
-      "@UI/*": [
-        "src/UI/*"
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@controls/*": [
+        "src/controls/*"
       ],
       "@layout/*": [
         "src/layout/*"

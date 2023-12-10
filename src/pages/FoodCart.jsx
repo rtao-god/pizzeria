@@ -1,9 +1,9 @@
 import React from 'react'
-import Pizza from '../components/Pizza/Pizza'
+import FoodMenu from '@components/food/FoodMenu/FoodMenu'
 
 function Posts({ result }) {
     return (
-        <Pizza result={result} />
+        <FoodMenu result={result} />
     )
 }
 

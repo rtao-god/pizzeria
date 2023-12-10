@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './SwiperRec.module.css'
-import { allFoods } from '@components/Pizza/foods/food'
+import { allFoods } from '@components/food/foodArray'
 import 'swiper/css'
-import Basket from '@UI/Basket/Basket'
+import Basket from '@common/controls/BasketButton/BasketButton'
 import { Context } from '@context'
 
 export default function SwiperRec() {

@@ -1,0 +1,77 @@
+$food-card-width: 250px
+$hover-color: rgb(112, 164, 1)
+$font-color: #6f8090
+$border-color: rgb(233, 235, 238)
+
+.foodItem
+    margin-top: 15px
+    width: $food-card-width
+    background-color: white
+    position: relative
+
+    @media (max-width: 548px)
+        width: 100%
+        display: flex
+        margin-top: 0px
+
+    .foodItemImage
+        user-select: none
+        object-fit: cover
+        height: 180px
+        cursor: pointer
+
+        @media (max-width: 548px)
+            min-width: 125px
+            max-width: 125px
+            height: 100%
+
+    .foodItemContent
+        height: 275px
+        padding: 12px
+        max-height: 300px
+
+        .foodItemTitle
+            font-family: sans-serif
+            cursor: pointer
+            transition: color 0.2s ease 0s
+            margin-bottom: 10px
+
+            &:hover
+                color: $hover-color
+
+        .foodItemIngredients
+            color: $font-color
+
+            @media (max-width: 756px)
+                font-size: 13px
+
+        .foodItemParams
+            margin-top: 10px
+            border-color: $border-color
+
+            .foodItemParamInput
+                padding: 5px
+                width: 100%
+                color: $font-color
+                border: 1px solid $border-color
+
+        .foodItemFooterWrapper
+            .foodItemFooter
+                position: absolute
+                bottom: 11px
+                width: 90%
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                @media (max-width: 548px)
+                    position: relative
+                    margin-top: 90px
+                    display: flex
+                    justify-content: space-between
+
+            .foodItemPrice
+                border-top: 1px solid rgb(150, 171, 204)
+                font-weight: 600
+                font-size: 16px
+                color: black

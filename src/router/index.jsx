@@ -1,5 +1,5 @@
 import MainPage from "@layoutPages/mainPage/MainPage"
-import ModalPreview from "@components/Pizza/previewFood/ModalPreview"
+import ModalPreview from "@components/food/previewFood/ModalPreview/ModalPreview"
 // import Login from "../pages/Login"
 
 export const privateRoutes = [

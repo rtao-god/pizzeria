@@ -1,12 +1,9 @@
 .wrapper {
     width: 100vw;
-    /* Span the full viewport width */
     height: 100%;
     position: relative;
     left: 50%;
-    /* Move to the right by 50% of the viewport width */
     transform: translateX(-50%);
-    /* Move back to the left by 50% of its own width */
 }
 
 .swiperWrapper {

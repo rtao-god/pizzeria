@@ -9,6 +9,8 @@ export default defineConfig({
     alias: {
       '@src': path.resolve(__dirname, "./src"),
       '@components': path.resolve(__dirname, './src/components'),
+      '@common': path.resolve(__dirname, './src/components/common'),
+      '@controls': path.resolve(__dirname, './src/components/common/controls'),
       '@mainPage': path.resolve(__dirname, './src/layout/mainPage'),
       '@mainSass': path.resolve(__dirname, './src/Styles/mainSass'),
       '@API': path.resolve(__dirname, './src/API'),
