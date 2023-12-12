@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
@@ -16,62 +12,28 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@src/*": [
-        "./src/*"
-      ],
-      "@mainPage/*": [
-        "mainPage"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@mainSass/*": [
-        "src/mainSass/*"
-      ],
-      "@API/*": [
-        "src/API/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@common/*": [
-        "src/common/*"
-      ],
-      "@controls/*": [
-        "src/controls/*"
-      ],
-      "@layout/*": [
-        "src/layout/*"
-      ],
-      "@context/*": [
-        "src/context/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@router/*": [
-        "src/router/*"
-      ],
-      "@layoutPages/*": [
-        "src/layoutPages/*"
-      ],
+      "@src/*": ["./src/*"],
+      "@mainPage/*": ["src/mainPage"],
+      "@components/*": ["src/components/*"],
+      "@mainSass/*": ["src/mainSass/*"],
+      "@API/*": ["src/API/*"],
+      "@assets/*": ["src/assets/*"],
+      "@common/*": ["src/common/*"],
+      "@controls/*": ["src/controls/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@modals/*": ["src/components/modals/*"],
+      "@context/*": ["src/context/*"],
+      "@pages/*": ["src/pages/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@router/*": ["src/router/*"],
+      "@layoutPages/*": ["src/layoutPages/*"]
     },
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "src/main.tsx",
-    "src/App.jsx"
-, "src/router/index.jsx"  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "src/main.tsx", "src/App.jsx", "src/router/index.jsx"],
   "references": [
     {
       "path": "./tsconfig.node.json"

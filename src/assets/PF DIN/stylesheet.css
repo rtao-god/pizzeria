@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'PF DinDisplay Pro';
-    src: url('PFDinDisplayPro-Medium.eot');
-    src: local('PFDinDisplayPro-Medium'),
-        url('PFDinDisplayPro-Medium.eot?#iefix') format('embedded-opentype'),
-        url('PFDinDisplayPro-Medium.woff') format('woff'),
-        url('PFDinDisplayPro-Medium.ttf') format('truetype');
-    font-style: normal;
+  font-family: 'PF DinDisplay Pro';
+  src: url('PFDinDisplayPro-Medium.eot');
+  src:
+    local('PFDinDisplayPro-Medium'),
+    url('PFDinDisplayPro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('PFDinDisplayPro-Medium.woff') format('woff'),
+    url('PFDinDisplayPro-Medium.ttf') format('truetype');
+  font-style: normal;
 }
-

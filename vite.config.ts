@@ -7,14 +7,15 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@src': path.resolve(__dirname, "./src"),
+      '@src': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
       '@common': path.resolve(__dirname, './src/components/common'),
       '@controls': path.resolve(__dirname, './src/components/common/controls'),
+      '@layout': path.resolve(__dirname, './src/components/layout'),
+      '@modals': path.resolve(__dirname, './src/components/modals'),
       '@mainPage': path.resolve(__dirname, './src/layout/mainPage'),
       '@mainSass': path.resolve(__dirname, './src/Styles/mainSass'),
       '@API': path.resolve(__dirname, './src/API'),
-      '@layout': path.resolve(__dirname, './src/layout'),
       '@UI': path.resolve(__dirname, './src/UI'),
       '@assets': path.resolve(__dirname, './src/assets'),
       '@context': path.resolve(__dirname, './src/context'),
@@ -23,6 +24,5 @@ export default defineConfig({
       '@router': path.resolve(__dirname, './src/router'),
       '@layoutPages': path.resolve(__dirname, './src/layoutPages'),
     },
-  }
+  },
 })
-

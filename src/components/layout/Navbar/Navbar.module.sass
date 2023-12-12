@@ -1,0 +1,31 @@
+.navbar
+  overflow: hidden
+  background-color: white
+  padding: 28px 0 29px 0
+  width: 100vw
+  display: flex
+  justify-content: space-around
+  position: fixed
+  z-index: 3
+  margin-top: 62px
+  height: 2%
+  align-items: center
+  border-top: 1px solid rgb(233, 235, 238)
+
+  & a
+    text-decoration: none
+    margin-left: 30px
+    color: #000
+    cursor: pointer
+    font-weight: 600
+    &:hover
+      color: rgb(155, 0, 0)
+
+@media (max-width: 767px)
+  .navbar
+    background-color: black
+    
+    & a
+      color: white
+      font-weight: 500
+      font-size: 13px

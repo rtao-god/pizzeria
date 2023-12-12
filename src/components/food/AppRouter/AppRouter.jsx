@@ -5,29 +5,24 @@ import { privateRoutes } from '@router/index'
 // import Loader from './common/loader/Loader'
 
 export default function AppRouter() {
-    /*  const { isAuth, isLoading } = useContext(AuthContext)
+  /*  const { isAuth, isLoading } = useContext(AuthContext)
      console.log(isAuth)
      if (isLoading) {
          return <Loader />
      } */
 
-    return (
-        <>
-            {/* {isAuth
+  return (
+    <>
+      {/* {isAuth
                 ? */}
-            <Routes>
-                {privateRoutes.map(route =>
-                    <Route
-                        path={route.path}
-                        element={route.element}
-                        exact={route.exact}
-                        key={route.path}
-                    />
-                )}
-                <Route path="*" element={<Navigate to="/main" replace />} />
-            </Routes>
-            {/* : */}
-            {/* <Routes>
+      <Routes>
+        {privateRoutes.map(route => (
+          <Route path={route.path} element={route.element} exact={route.exact} key={route.path} />
+        ))}
+        <Route path="*" element={<Navigate to="/main" replace />} />
+      </Routes>
+      {/* : */}
+      {/* <Routes>
                 {publicRoutes.map(route =>
                     <Route
                         path={route.path}
@@ -37,7 +32,7 @@ export default function AppRouter() {
                     />
                 )}
             </Routes> */}
-            {/* } */}
-        </>
-    )
+      {/* } */}
+    </>
+  )
 }

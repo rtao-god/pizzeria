@@ -1,0 +1,40 @@
+.basketButton
+    position: fixed
+    right: 60px
+    bottom: 60px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 50%
+    background-color: rgb(200, 16, 46)
+    color: white
+    width: 58px
+    height: 58px
+    cursor: pointer
+    z-index: 1
+    transition: background-color 0.2s ease 0s
+
+    &:hover
+        background-color: rgb(150, 5, 29)
+
+   
+
+@keyframes tilt-shaking
+    0%
+        transform: rotate(0deg)
+
+    25%
+        transform: rotate(5deg)
+
+    50%
+        transform: rotate(0eg)
+
+    75%
+        transform: rotate(-5deg)
+
+    100%
+        transform: rotate(0deg)
+
+@media (max-width: 767px)
+    #buttonBasket
+        display: none
