@@ -1,3 +1,9 @@
+.fixedHeader
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1
+
 .preview
     display: flex
     margin-top: 103px
@@ -14,7 +20,7 @@
     padding: 20px
     margin-top: 25px
     margin-left: 204px
-    & h4, p, div, input
+    & h4, div, input
         margin-bottom: 25px
         &:not(p)
             font-weight: 600
@@ -23,6 +29,28 @@
         line-height: 1
         font-size: 34px
         width: 100vw
+
+    & .toppingsType
+        display: flex
+        -webkit-box-pack: justify
+        justify-content: space-around
+        margin-bottom: 20px
+        padding: 0px 15px
+        & h3
+            height: 44px
+            display: inline-flex
+            -webkit-box-pack: center
+            justify-content: center
+            position: relative
+            -webkit-box-align: center
+            align-items: center
+            font-weight: 600
+            font-size: 12px
+            line-height: 17px
+            color: rgb(49, 49, 49)
+            transition: color 0.1s ease 0s
+            cursor: pointer
+
     & .dropdown
         width: 148px
         height: 45px
@@ -39,7 +67,7 @@
                 font-size: 19px
                 transform: rotate(90deg)
         & .dropdownContent
-            display: none
+            display: block
             width: 536px
             position: absolute
             background-color: #f1f1f1
@@ -53,6 +81,7 @@
                 user-select: none
             & dd
                 padding: 10px
+
             & .counter
                 user-select: none
                 & svg

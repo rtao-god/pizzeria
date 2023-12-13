@@ -3,7 +3,7 @@ import cl from './Header.module.sass'
 import '@assets/beermoney/beermoney.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhone, faGift, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
-import Auth from '@components/Auth/Auth'
+import AuthModal from '@components/modals/AuthModal/AuthModal'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
@@ -55,7 +55,7 @@ export default function Header() {
             <span> Sign in </span>
           </a>
         </div>
-        {modalAuth ? <Auth modalAuth={modalAuth} setModalAuth={setModalAuth} /> : <div> </div>}
+        {modalAuth ? <AuthModal modalAuth={modalAuth} setModalAuth={setModalAuth} /> : <div> </div>}
       </div>
     </div>
   )

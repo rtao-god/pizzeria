@@ -3,10 +3,10 @@ import React, { useContext, useEffect } from 'react'
 import Header from '@layout/Header/Header'
 import Navbar from '@layout/Navbar/Navbar'
 
-import MainSwiper from '@layout/Swipers/MainSwiper/Swiper'
-import SwiperStories from '@layout/Swipers/SwiperStories/Swiper'
+import MainSwiper from '@layout/swipers/MainSwiper/Swiper'
+import SwiperStories from '@layout/swipers/SwiperStories/Swiper'
 
-import FoodCart from '@pages/FoodCart'
+import FoodMenu from '@components/food/FoodMenu/FoodMenu'
 import FoodFilter from '@components/food/FoodFilter/FoodFilter'
 
 import BasketButton from '@layout/BasketButton/BasketButton'
@@ -45,7 +45,7 @@ export default function MainPage() {
       <MainSwiper />
       <SwiperStories />
       <FoodFilter allFoods={context.allFoods} setResult={context.setResult} />
-      <FoodCart result={context.result} />
+      <FoodMenu result={context.result} />
       <BasketButton
         countTotal={context.countTotal}
         countState={context.countState}

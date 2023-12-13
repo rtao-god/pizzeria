@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import cl from './ModalPreview.module.sass'
+import cl from './PreviewFood.module.sass'
 import '@assets/PF DIN/stylesheet.css'
 import { useLocation } from 'react-router-dom'
 
 import Header from '@layout/Header/Header'
 import Navbar from '@layout/Navbar/Navbar'
 import Footer from '@layout/Footer/Footer'
-import Basket from '@common/controls/BasketButton/BasketButton'
-import ModalPreviewToppings from '../ModalPreviewToppings/ModalPreviewToppings'
+import BasketButton from '@common/controls/BasketButton/BasketButton'
+import PreviewFoodToppings from '../PreviewFoodToppings/PreviewFoodToppings'
 
 import { Context } from '@context'
 import { allFoods } from '@components/food/foodArray'
 
-export default function ModalPreview() {
+export default function PreviewFood() {
   const location = useLocation()
   const { basket, setBasket, activeModal, setActiveModal, countTotal, setCountTotal, addFoodToBasket } =
     useContext(Context)
@@ -22,15 +22,21 @@ export default function ModalPreview() {
   const [selectedToppingType, setSelectedToppingType] = useState('')
   const toppingsList = {
     meat: [
-      { img: '212820', title: 'Bacon', price: 99, count: 0 },
-      // ... other meats
+      { img: 'Beef', title: 'Bacon', price: 99, count: 0 },
+      { img: 'MeatMixture', title: 'Bacon', price: 99, count: 0 },
+      { img: 'PepperoniSausage', title: 'Bacon', price: 99, count: 0 },
+      { img: 'PorkHam', title: 'Bacon', price: 99, count: 0 },
     ],
     vegetables: [
-      { img: '212417', title: 'Red onion', price: 79, count: 0 },
-      // ... other vegetables
+      { img: 'JalapenoPepper', title: 'Red onion', price: 79, count: 0 },
+      { img: 'Mushrooms', title: 'Red onion', price: 79, count: 0 },
+      { img: 'Olives', title: 'Red onion', price: 79, count: 0 },
+      { img: 'Pineapples', title: 'Red onion', price: 79, count: 0 },
+      { img: 'RedOnion', title: 'Red onion', price: 79, count: 0 },
+      { img: 'VegetableMixture', title: 'Red onion', price: 79, count: 0 },
     ],
-    cheeses: [{ img: '212529', title: 'Mozzarella cheese', price: 89, count: 0 }],
-    sauces: [{ img: '212540', title: 'Barbecue sauce', price: 69, count: 0 }],
+    cheeses: [{ img: 'MozzarellaCheese', title: 'Mozzarella cheese', price: 89, count: 0 }],
+    sauces: [{ img: 'BarbecueSauce', title: 'Barbecue sauce', price: 69, count: 0 }],
   }
 
   const cheeseFunc = () => {
@@ -54,7 +60,7 @@ export default function ModalPreview() {
 
   const renderToppings = type => {
     if (toppingsList[type]) {
-      return toppingsList[type].map(topping => <ModalPreviewToppings toppingsEl={topping} />)
+      return toppingsList[type].map(topping => <PreviewFoodToppings toppingsEl={topping} />)
     }
     return null
   }
@@ -92,8 +98,8 @@ export default function ModalPreview() {
           className={cl.imgFood}
           src={'/photo/food/' + selectedFood.img + '-optimize.jpg'}
           alt="food"
-          onClick={handleImageClick} // 2. Add click handler
-          style={imgFoodStyle} // Apply the style
+          onClick={handleImageClick}
+          style={imgFoodStyle}
         />
         <div className={cl.previewContent}>
           <h4> {selectedFood.title} </h4>
@@ -136,7 +142,7 @@ export default function ModalPreview() {
             <span> Double cheese </span>
           </div>
           <span onClick={() => addFoodToBasket(selectedFood)}>
-            <Basket title={'To basket'} />
+            <BasketButton title={'Add to basket'} />
           </span>
         </div>
       </div>

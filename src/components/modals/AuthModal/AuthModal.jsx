@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import cl from './Auth.module.sass'
+import cl from './AuthModal.module.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useLocalStorage } from '@hooks/localStorage'
 
-export default function Auth({ modalAuth, setModalAuth }) {
+export default function AuthModal({ modalAuth, setModalAuth }) {
   const [isSignUp, setIsSignUp] = useState(false)
   const [emailSignIn, setEmailSignIn] = useState('')
   const [emailSignUp, setEmailSignUp] = useState('')

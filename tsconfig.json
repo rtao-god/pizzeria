@@ -1,42 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@src/*": ["./src/*"],
-      "@mainPage/*": ["src/mainPage"],
-      "@components/*": ["src/components/*"],
-      "@mainSass/*": ["src/mainSass/*"],
-      "@API/*": ["src/API/*"],
-      "@assets/*": ["src/assets/*"],
-      "@common/*": ["src/common/*"],
-      "@controls/*": ["src/controls/*"],
-      "@layout/*": ["src/components/layout/*"],
-      "@modals/*": ["src/components/modals/*"],
-      "@context/*": ["src/context/*"],
-      "@pages/*": ["src/pages/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@router/*": ["src/router/*"],
-      "@layoutPages/*": ["src/layoutPages/*"]
-    },
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "src/main.tsx", "src/App.jsx", "src/router/index.jsx"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+      "@/*": ["./*"]
     }
-  ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

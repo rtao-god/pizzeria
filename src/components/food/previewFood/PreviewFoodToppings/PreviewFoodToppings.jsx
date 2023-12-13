@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import cl from './ModalPreviewToppings.module.sass'
+import cl from './PreviewFoodToppings.module.sass'
 
-export default function ModalPreviewToppings({ toppingsEl }) {
+export default function PreviewFoodToppings({ toppingsEl }) {
   const [render, setRender] = useState(0)
 
   function decrementCount() {
@@ -21,10 +21,10 @@ export default function ModalPreviewToppings({ toppingsEl }) {
   return (
     <dl className={cl.cardToppings}>
       <dd>
-        <img src={'/photo/toppings/Снимок экрана 2023-10-04 ' + toppingsEl.img + '.png'} alt="toppings icon" />
+        <img src={'/photo/toppings/' + toppingsEl.img + '.png'} alt="toppings icon" />
       </dd>
-      <dd style={{ width: '54.5%' }}> {toppingsEl.title} </dd>
-      <dd style={{ color: 'grey' }}> {toppingsEl.price} $ </dd>
+      <dd className={cl.title}> {toppingsEl.title} </dd>
+      <dd className={cl.price}> {toppingsEl.price} $ </dd>
       <dd className={cl.counter}>
         <svg
           onClick={decrementCount}

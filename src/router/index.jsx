@@ -1,10 +1,10 @@
-import MainPage from '@layoutPages/mainPage/MainPage'
-import ModalPreview from '@components/food/previewFood/ModalPreview/ModalPreview'
+import MainPage from '@pages/MainPage/MainPage'
+import PreviewFood from '@components/food/previewFood/PreviewFood/PreviewFood'
 // import Login from "../pages/Login"
 
 export const privateRoutes = [
   { path: '/main', element: <MainPage />, exact: true },
-  { path: '/preview/:id', element: <ModalPreview />, exact: true },
+  { path: '/preview/:id', element: <PreviewFood />, exact: true },
 ]
 
 /* export const publicRoutes = [
