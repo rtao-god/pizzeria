@@ -1,21 +1,19 @@
-import React from 'react';
-import cl from './Navbar.module.sass';
-import BasketOverviewModal from '@modals/BasketOverviewModal/BasketOverviewModal';
-import BasketButton from '@common/controls/BasketButton/BasketButton';
+import React from 'react'
+import cl from './Navbar.module.sass'
+import BasketOverviewModal from '@modals/BasketOverviewModal/BasketOverviewModal'
+import BasketButton from '@common/controls/BasketButton/BasketButton'
 
 const Navbar = ({ basket, countTotal, setCountTotal, active, setActive }) => {
-  const navigationLinks = ['PIZZA', 'BURGERS', 'STOCK', 'WINGS', 'SNACKS', 'DESSERT', 'DRINKS', 'ICE PIZZA'].map((link, index) => (
-    <a key={index}>{link}</a>
-  ));
+  const navigationLinks = ['PIZZA', 'BURGERS', 'STOCK', 'WINGS', 'SNACKS', 'DESSERT', 'DRINKS', 'ICE PIZZA'].map(
+    (link, index) => <a key={index}>{link}</a>
+  )
 
   return (
     <div className={cl.navbar}>
-      <div>
-        {navigationLinks}
-      </div>
+      <div>{navigationLinks}</div>
 
       <div className={cl.basketButton} onClick={() => setActive(true)}>
-        <BasketButton countTotal={countTotal} title='BASKET' />
+        <BasketButton countTotal={countTotal} title="BASKET" />
       </div>
 
       {active && (
@@ -28,7 +26,7 @@ const Navbar = ({ basket, countTotal, setCountTotal, active, setActive }) => {
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
