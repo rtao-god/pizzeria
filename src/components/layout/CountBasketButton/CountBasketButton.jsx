@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import cl from './CountBasketButton.module.sass'
 
 export default function CountBasketButton(props) {

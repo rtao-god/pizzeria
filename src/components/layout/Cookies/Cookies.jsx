@@ -1,8 +1,7 @@
-import React from 'react'
 import cl from './Cookies.module.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useLocalStorage } from '@hooks/localStorage'
+import { useLocalStorage } from '@all/hooks/localStorage'
 
 export default function Cookies() {
   const [closeButton, setCloseButton] = useLocalStorage('cookiesBanner', 'true')

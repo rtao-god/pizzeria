@@ -1,4 +1,3 @@
-import React from 'react'
 import cl from './ModalDiscountMessage.module.sass'
 
 export default function ModalDiscountMessage() {

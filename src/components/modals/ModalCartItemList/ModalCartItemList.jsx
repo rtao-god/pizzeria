@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import ModalCartItem from '../ModalCartItem/ModalCartItem'
 
 export default function odalCartItemList({ setActive, getDefaultPrice, basket, increase, decrement }) {
@@ -12,7 +12,7 @@ export default function odalCartItemList({ setActive, getDefaultPrice, basket, i
   }, [safeBasket, setActive])
 
   return (
-    <div>
+    <>
       {safeBasket.length === 0 ? (
         <span>No items in the basket.</span>
       ) : (
@@ -29,6 +29,6 @@ export default function odalCartItemList({ setActive, getDefaultPrice, basket, i
           ))}
         </div>
       )}
-    </div>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import cl from './ModalCartItem.module.sass'
 
 export default function ModalCartItem({ getDefaultPrice, bas, basket, increase, decrement }) {

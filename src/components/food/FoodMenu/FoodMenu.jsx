@@ -1,4 +1,3 @@
-import React from 'react'
 import cl from './FoodMenu.module.sass'
 import FoodList from '../FoodList/FoodList'
 

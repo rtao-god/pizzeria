@@ -1,4 +1,3 @@
-import React from 'react'
 import cl from './FoodFilterItem.module.sass'
 
 export default function FoodFilterItem({ sort, myFilter }) {

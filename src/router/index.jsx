@@ -1,5 +1,5 @@
-import MainPage from '@pages/MainPage/MainPage'
-import PreviewFood from '@components/food/previewFood/PreviewFood/PreviewFood'
+import MainPage from '@all/pages/MainPage/MainPage'
+import PreviewFood from '@/food/previewFood/PreviewFood/PreviewFood'
 // import Login from "../pages/Login"
 
 export const privateRoutes = [

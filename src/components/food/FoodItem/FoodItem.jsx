@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import cl from './FoodItem.module.sass'
-import Basket from '@common/controls/BasketButton/BasketButton'
+import Basket from '@/common/controls/BasketButton/BasketButton'
 import { useNavigate } from 'react-router-dom'
-import { Context } from '@context'
+import { Context } from '@all/context'
 
 const FoodItem = ({ food }) => {
   const navigate = useNavigate()

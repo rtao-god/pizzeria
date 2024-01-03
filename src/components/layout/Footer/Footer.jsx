@@ -1,4 +1,3 @@
-import React from 'react'
 import cl from './Footer.module.sass'
 
 export default function Footer() {

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import cl from './Header.module.sass'
-import '@assets/beermoney/beermoney.css'
+import '@/assets/fonts/beermoney/beermoney.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faPhone, faGift, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
-import AuthModal from '@components/modals/AuthModal/AuthModal'
+import AuthModal from '@/modals/AuthModal/AuthModal'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {

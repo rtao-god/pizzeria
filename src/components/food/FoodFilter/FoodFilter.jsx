@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import FoodFilterItem from '../FoodFilterItem/FoodFilterItem'
 import cl from './FoodFilter.module.sass'
 

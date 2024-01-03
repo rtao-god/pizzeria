@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import cl from './PreviewFood.module.sass'
-import '@assets/PF DIN/stylesheet.css'
+import '@/assets/fonts/PF DIN/stylesheet.css'
 import { useLocation } from 'react-router-dom'
 
-import Header from '@layout/Header/Header'
-import Navbar from '@layout/Navbar/Navbar'
-import Footer from '@layout/Footer/Footer'
-import BasketButton from '@common/controls/BasketButton/BasketButton'
+import Header from '@/layout/Header/Header'
+import Navbar from '@/layout/Navbar/Navbar'
+import Footer from '@/layout/Footer/Footer'
+import BasketButton from '@/common/controls/BasketButton/BasketButton'
 import PreviewFoodToppings from '../PreviewFoodToppings/PreviewFoodToppings'
 
-import { Context } from '@context'
-import { allFoods } from '@components/food/foodArray'
+import { Context } from '@all/context'
+import { allFoods } from '@/food/foodArray'
 
 export default function PreviewFood() {
   const location = useLocation()

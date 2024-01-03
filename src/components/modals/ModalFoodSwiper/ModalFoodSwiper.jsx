@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cl from './ModalFoodSwiper.module.sass'
-import { allFoods } from '@components/food/foodArray'
+import { allFoods } from '@/food/foodArray'
 import 'swiper/css'
-import Basket from '@common/controls/BasketButton/BasketButton'
-import { Context } from '@context'
+import Basket from '@/common/controls/BasketButton/BasketButton'
+import { Context } from '@all/context'
 
 export default function ModalFoodSwiper() {
   const context = useContext(Context)

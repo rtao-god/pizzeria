@@ -1,7 +1,6 @@
-import React from 'react'
 import cl from './Navbar.module.sass'
-import BasketOverviewModal from '@modals/BasketOverviewModal/BasketOverviewModal'
-import BasketButton from '@common/controls/BasketButton/BasketButton'
+import BasketOverviewModal from '@/modals/BasketOverviewModal/BasketOverviewModal'
+import BasketButton from '@/common/controls/BasketButton/BasketButton'
 
 const Navbar = ({ basket, countTotal, setCountTotal, active, setActive }) => {
   const navigationLinks = ['PIZZA', 'BURGERS', 'STOCK', 'WINGS', 'SNACKS', 'DESSERT', 'DRINKS', 'ICE PIZZA'].map(

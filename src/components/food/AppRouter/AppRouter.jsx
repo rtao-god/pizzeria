@@ -1,6 +1,5 @@
-import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { privateRoutes } from '@router/index'
+import { privateRoutes } from '@all/router/index'
 // import { AuthContext } from '@context/index'
 // import Loader from './common/loader/Loader'
 

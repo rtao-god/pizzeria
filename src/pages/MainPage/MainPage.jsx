@@ -1,19 +1,19 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 
-import Header from '@layout/Header/Header'
-import Navbar from '@layout/Navbar/Navbar'
+import Header from '@/layout/Header/Header'
+import Navbar from '@/layout/Navbar/Navbar'
 
-import MainSwiper from '@layout/swipers/MainSwiper/Swiper'
-import SwiperStories from '@layout/swipers/SwiperStories/Swiper'
+import MainSwiper from '@/layout/swipers/MainSwiper/Swiper'
+import SwiperStories from '@/layout/swipers/SwiperStories/Swiper'
 
-import FoodMenu from '@components/food/FoodMenu/FoodMenu'
-import FoodFilter from '@components/food/FoodFilter/FoodFilter'
+import FoodMenu from '@/food/FoodMenu/FoodMenu'
+import FoodFilter from '@/food/FoodFilter/FoodFilter'
 
-import BasketButton from '@layout/BasketButton/BasketButton'
-import Cookies from '@layout/Cookies/Cookies'
-import Footer from '@layout/Footer/Footer'
+import BasketButton from '@/layout/BasketButton/BasketButton'
+import Cookies from '@/layout/Cookies/Cookies'
+import Footer from '@/layout/Footer/Footer'
 
-import { Context } from '@context'
+import { Context } from '@all/context'
 
 export default function MainPage() {
   const context = useContext(Context)

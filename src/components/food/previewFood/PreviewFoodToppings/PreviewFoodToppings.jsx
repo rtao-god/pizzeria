@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import cl from './PreviewFoodToppings.module.sass'
 
 export default function PreviewFoodToppings({ toppingsEl }) {

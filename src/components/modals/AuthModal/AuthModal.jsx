@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import cl from './AuthModal.module.sass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useLocalStorage } from '@hooks/localStorage'
+import { useLocalStorage } from '@all/hooks/localStorage'
 
 export default function AuthModal({ modalAuth, setModalAuth }) {
   const [isSignUp, setIsSignUp] = useState(false)
@@ -94,7 +94,7 @@ export default function AuthModal({ modalAuth, setModalAuth }) {
                     className={emailSignUp.includes('@') ? cl.valid : cl.invalid}
                     value={emailSignUp}
                     onChange={e => setEmailSignUp(e.target.value)}
-                    maxLength="18"
+                    maxLength="25"
                     type="email"
                     required
                   />
@@ -105,7 +105,7 @@ export default function AuthModal({ modalAuth, setModalAuth }) {
                     className={passwordSignUp.length >= 3 ? cl.valid : cl.invalid}
                     value={passwordSignUp}
                     onChange={e => setPasswordSignUp(e.target.value)}
-                    maxLength="18"
+                    maxLength="25"
                     type={showPassword ? 'text' : 'password'}
                     required
                   />
@@ -120,7 +120,7 @@ export default function AuthModal({ modalAuth, setModalAuth }) {
                     className={name.length >= 3 ? cl.valid : cl.invalid}
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    maxLength="18"
+                    maxLength="25"
                     required
                   />
                 </div>
