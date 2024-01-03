@@ -36,20 +36,17 @@
  margin-top: 0 */
 
 .footer
-    width: 100vw
-    min-height: 100px // Or any minimum height you prefer
     background-color: rgb(26, 26, 26)
+    flex-shrink: 0
     color: white
-    position: relative // or 'static' depending on your layout
-    margin-top: auto // Helps in pushing the footer to the bottom in a flex container
     z-index: 6
-
+    position: relative
+    margin-top: auto
     & .footerContainer
         max-width: 1140px
-        display: flex // or 'grid' based on your design
-        flex-wrap: wrap // For responsiveness
         margin: 0px auto
         padding: 40px 0px 10px 30px
+        display: grid
         grid-template-columns: repeat(4, 1fr)
         & .footerContainerOrders
             display: flex

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { HashRouter as Router } from 'react-router-dom'
-import '@all/css/global/App.sass'
 import AppRouter from '@/food/AppRouter/AppRouter'
 import { Context } from '@all/context'
 import { allFoods } from '@/food/foodArray'

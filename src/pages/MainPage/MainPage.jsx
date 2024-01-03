@@ -1,5 +1,7 @@
 import { useContext, useEffect } from 'react'
 
+import cl from './MainPage.module.sass'
+
 import Header from '@/layout/Header/Header'
 import Navbar from '@/layout/Navbar/Navbar'
 
@@ -42,10 +44,12 @@ export default function MainPage() {
           setActive={context.setActiveModal}
         />
       </div>
-      <MainSwiper />
-      <SwiperStories />
-      <FoodFilter allFoods={context.allFoods} setResult={context.setResult} />
-      <FoodMenu result={context.result} />
+      <div className={cl.minPage}>
+        <MainSwiper />
+        <SwiperStories />
+        <FoodFilter allFoods={context.allFoods} setResult={context.setResult} />
+        <FoodMenu result={context.result} />
+      </div>
       <BasketButton
         countTotal={context.countTotal}
         countState={context.countState}
