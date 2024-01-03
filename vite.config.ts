@@ -6,14 +6,13 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       sass: {
-        // Note: Use 'additionalData' instead of 'prependData'
-        additionalData: `@import "@all/css/include.sass"\n`, // Adjust the path as needed
+        additionalData: `@import "@all/css/include.sass"\n`
       },
     },
   },
   resolve: {
     alias: {
-      '@all': '/src', // Adjust this alias based on your project structure
+      '@all': '/src',
       '@': '/src/components', 
     },
   },
