@@ -1,0 +1,65 @@
+.dropdown
+    width: 148px
+    height: 45px
+    z-index: 10
+
+    & .addToppings
+        display: flex
+        height: 21px
+        margin-top: 25px
+        cursor: pointer
+        user-select: none
+        & p
+            margin-right: 11px
+            display: flex
+            -webkit-box-align: center
+            align-items: center
+            border-bottom: 1px dashed lightgray
+            font-weight: 600
+            font-size: 14px
+
+    & .dropdownContent
+        display: block // Ensures it's hidden by default
+        width: 536px
+        background-color: rgb(248, 248, 249)
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+
+        & .toppingsType
+            display: flex
+            -webkit-box-pack: justify
+            justify-content: space-around
+            margin-bottom: 20px
+            padding: 1px 15px
+            & h3
+                height: 44px
+                user-select: none
+                display: inline-flex
+                -webkit-box-pack: center
+                justify-content: center
+                position: relative
+                -webkit-box-align: center
+                align-items: center
+                font-weight: 600
+                font-size: 12px
+                line-height: 17px
+                color: rgb(49, 49, 49)
+                transition: color 0.1s ease 0s
+                cursor: pointer
+                &:hover
+                    color: rgb(112, 164, 1)
+
+        & img
+            width: 20px
+            height: 20px
+            user-select: none
+            & dd
+                padding: 10px
+
+            & .counter
+                user-select: none
+                & svg
+                    cursor: pointer
+                & span
+                    padding: 7px
+    & .dropdown:hover .dropdownContent
+        display: block
