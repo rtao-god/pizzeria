@@ -1,12 +1,12 @@
-import cl from './FoodFilterItem.module.sass'
+import styles from './FoodFilterItem.module.sass'
 
 export default function FoodFilterItem({ sort, myFilter }) {
-  return (
-    <button
-      onClick={() => sort(myFilter)}
-      className={`${cl.foodFilterButton} ${myFilter.active ? '' : cl.activeFilter}`}
-    >
-      {myFilter.name}
-    </button>
-  )
+    return (
+        <button
+            onClick={() => sort(myFilter)}
+            className={`${styles.foodFilterButton} ${myFilter.active ? '' : styles.activeFilter}`}
+        >
+            {myFilter.name}
+        </button>
+    )
 }

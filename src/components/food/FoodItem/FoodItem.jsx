@@ -1,41 +1,41 @@
 import { useContext } from 'react'
-import cl from './FoodItem.module.sass'
+import styles from './FoodItem.module.sass'
 import Basket from '@/common/controls/BasketButton/BasketButton'
 import { useNavigate } from 'react-router-dom'
 import { Context } from '@all/context'
 
 const FoodItem = ({ food }) => {
-  const navigate = useNavigate()
-  const { addFoodToBasket } = useContext(Context)
+    const navigate = useNavigate()
+    const { addFoodToBasket } = useContext(Context)
 
-  return (
-    <div className={cl.foodItem}>
-      <button className={cl.foodItemPreviewButton} onClick={() => navigate(`/preview/${food.id}`)}>
-        <img src={`/photo/food/${food.img}-optimize.jpg`} alt="img cardfood" className={cl.foodItemImage} />
-      </button>
+    return (
+        <div className={styles.foodItem}>
+            <button className={styles.foodItemPreviewButton} onClick={() => navigate(`/preview/${food.id}`)}>
+                <img src={`/photo/food/${food.img}-optimize.jpg`} alt="img cardfood" className={styles.foodItemImage} />
+            </button>
 
-      <div className={cl.foodItemContent}>
-        <div className={cl.foodItemText}>
-          <h3 className={cl.foodItemTitle}> {food.title} </h3>
-          <p className={cl.foodItemIngredients}> {food.ingredients} </p>
-        </div>
+            <div className={styles.foodItemContent}>
+                <div className={styles.foodItemText}>
+                    <h3 className={styles.foodItemTitle}> {food.title} </h3>
+                    <p className={styles.foodItemIngredients}> {food.ingredients} </p>
+                </div>
 
-        <div className={cl.foodItemParams}>
-          <input type="text" value="Traditional" readOnly className={cl.foodItemParamInput} />
-          <input type="text" value="30cm" readOnly className={cl.foodItemParamInput} />
-        </div>
+                <div className={styles.foodItemParams}>
+                    <input type="text" value="Traditional" readOnly className={styles.foodItemParamInput} />
+                    <input type="text" value="30cm" readOnly className={styles.foodItemParamInput} />
+                </div>
 
-        <div className={cl.foodItemFooterWrapper}>
-          <div className={cl.foodItemFooter}>
-            <p className={cl.foodItemPrice}> {food.price} $ </p>
-            <div onClick={() => addFoodToBasket(food)} className={cl.foodItemAddToCart}>
-              <Basket title={'Add to cart'} />
+                <div className={styles.foodItemFooterWrapper}>
+                    <div className={styles.foodItemFooter}>
+                        <p className={styles.foodItemPrice}> {food.price} $ </p>
+                        <div onClick={() => addFoodToBasket(food)} className={styles.foodItemAddToCart}>
+                            <Basket title={'Add to cart'} />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
 
 export default FoodItem

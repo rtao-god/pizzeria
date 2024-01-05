@@ -1,31 +1,50 @@
 .navbar
-  overflow: hidden
-  background-color: white
-  padding: 28px 0 29px 0
-  width: 100vw
-  display: flex
-  justify-content: space-around
-  position: fixed
-  z-index: 3
-  margin-top: 62px
-  height: 2%
-  align-items: center
-  border-top: 1px solid rgb(233, 235, 238)
+    position: fixed
+    top: 55px
+    width: 100%
+    height: 55px
+    color: rgb(120, 131, 140)
+    background-color: rgb(255, 255, 255)
+    z-index: 9
+    display: flex
+    -webkit-box-align: center
+    align-items: center
+    border-bottom: 1px solid rgb(233, 235, 238)
 
-  & a
-    text-decoration: none
-    margin-left: 30px
-    color: #000
-    cursor: pointer
-    font-weight: 600
-    &:hover
-      color: rgb(155, 0, 0)
+    & .navbarContent
+        height: 100%
+        width: 100%
+        max-width: 1140px
+        margin: 0px auto
+        display: flex
+        -webkit-box-align: center
+        align-items: center
+        justify-content: space-between
+        & .navigationLinks
+            height: 100%
+            -webkit-box-flex: 1
+            flex-grow: 1
+            display: flex
+            -webkit-box-align: center
+            align-items: center
+            & a
+                cursor: pointer
+                padding: 0px 1.2rem
+                text-transform: uppercase
+                font-weight: 600
+                font-size: 1.05em
+                font-family: serif
+                transition: all 0.1s ease 0s
+                color: rgb(49, 49, 49)
+                outline: none
+                &:hover
+                    color: rgb(200, 16, 46)
 
 @media (max-width: 767px)
-  .navbar
-    background-color: black
-    
-    & a
-      color: white
-      font-weight: 500
-      font-size: 13px
+    .navbar
+        background-color: black
+
+        & a
+            color: white
+            font-weight: 500
+            font-size: 13px

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 
-import cl from './MainPage.module.sass'
+import styles from './MainPage.module.sass'
 
 import Header from '@/layout/Header/Header'
 import Navbar from '@/layout/Navbar/Navbar'
@@ -44,7 +44,7 @@ export default function MainPage() {
           setActive={context.setActiveModal}
         />
       </div>
-      <div className={cl.minPage}>
+      <div className={styles.minPage}>
         <MainSwiper />
         <SwiperStories />
         <FoodFilter allFoods={context.allFoods} setResult={context.setResult} />
